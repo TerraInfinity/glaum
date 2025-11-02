@@ -22,6 +22,12 @@
     "url": "https://github.com/chanteblais/glaum/issues"
   },
   "homepage": "https://github.com/chanteblais/glaum#readme",
+  "dependencies": {
+    "next": "^15.x.x",
+    "react": "^18.x.x",
+    "react-dom": "^18.x.x",
+    "next-pwa": "^5.6.0"
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.16",
     "@types/node": "^24.9.2",
