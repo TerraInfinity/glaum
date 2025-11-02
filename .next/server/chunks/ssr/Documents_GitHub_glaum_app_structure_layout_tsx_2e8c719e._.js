@@ -1,0 +1,3 @@
+module.exports=[42980,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsxs)("div",{style:{backgroundImage:"url(/img/structure.png)",backgroundSize:"cover",backgroundPosition:"center",backgroundRepeat:"no-repeat",backgroundAttachment:"fixed",backgroundColor:"transparent"},children:[a,(0,b.jsx)("div",{className:"py-16 mx-auto w-full",children:(0,b.jsx)("footer",{className:"px-4 flex justify-between items-center mx-auto max-w-3xl mx-auto",children:(0,b.jsx)("p",{className:"my-12",children:"Copyright 2022 - Glåüm.ca"})})})]})}a.s(["default",()=>c])}];
+
+//# sourceMappingURL=Documents_GitHub_glaum_app_structure_layout_tsx_2e8c719e._.js.map

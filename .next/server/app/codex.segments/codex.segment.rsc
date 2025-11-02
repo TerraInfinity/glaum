@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/42879de7b8087bc9.js"],"default"]
+3:I[37457,["/_next/static/chunks/42879de7b8087bc9.js"],"default"]
+0:{"buildId":"wWFPP6p0UoAQKxrHIs1y1","rsc":["$","$1","c",{"children":[null,["$","div",null,{"style":{"backgroundImage":"url(/img/codex.png)","backgroundSize":"cover","backgroundPosition":"center","backgroundRepeat":"no-repeat","backgroundAttachment":"fixed","backgroundColor":"transparent"},"children":[["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}],["$","div",null,{"className":"py-16 mx-auto w-full","children":["$","footer",null,{"className":"px-4 flex justify-between items-center mx-auto max-w-3xl mx-auto","children":["$","p",null,{"className":"my-12","children":"Copyright 2022 - Glåüm.ca"}]}]}]]}]]}],"loading":null,"isPartial":false}

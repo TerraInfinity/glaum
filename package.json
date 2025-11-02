@@ -4,7 +4,13 @@
   "description": "More than love.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build && next export",
+    "preview": "npx serve out",
+    "deploy-gh": "npm run export && npx gh-pages -d out --branch gh-pages"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/chanteblais/glaum/issues"
   },
-  "homepage": "https://github.com/chanteblais/glaum#readme"
+  "homepage": "https://github.com/chanteblais/glaum#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^24.9.2",
+    "@types/react": "^19.2.2",
+    "next-pwa": "^5.6.0",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.3"
+  }
 }

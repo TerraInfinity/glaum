@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'tokyo_dreamsregular';
+  src: url('/css/fonts/tokyodreams_1-webfont.woff2') format('woff2'),
+       url('/css/fonts/tokyodreams_1-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  --color-purple1: #8038f4;
+  --color-purple2: #ac63f4;
+  --color-purple3: #884389;
+  --color-purple4: #7862c3;
+}
+
+body {
+  background: #ac63f4;
+  background-image: url('/img/homepage.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+}
+
+.header {
+  font-family: "tokyo_dreamsregular";
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2 
+h3,
+h4,
+h5,
+h6 {
+  font-family: bilo, sans-serif;
+}
+
+.seamless-gradient-wrapper {
+  --d: 9000px;
+  --angle: 150deg;
+  --sin: 0.5; /* = sin(angle) */
+  --w: 100%;
+
+  position: relative;
+  z-index: 0;
+}
+
+body,
+html,
+table {
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 0, 'lnum' 0,
+    'dlig' 0;
+  font-weight: 200;
+}
+body {
+  font-family: Averta Regular, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  letter-spacing: 0.025em;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+body a {
+  transition: color 0.2s ease-out;
+}
+body h1 {
+  font-size: 1.875rem;
+}
+body h2 {
+  font-size: 1.5rem;
+}
+body h3 {
+  font-size: 1.875rem;
+}
+body h4,
+body h5 {
+  font-size: 1.25rem;
+}
+body h6 {
+  font-size: 1rem;
+}
+@media (min-width: 531px) {
+  body h6 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 941px) {
+  body a,
+  body p,
+  body table {
+    font-size: 1rem;
+  }
+  body h1 {
+    font-size: 2.5rem;
+  }
+  body h2 {
+    font-size: 2.25rem;
+  }
+  body h3 {
+    font-size: 1.875rem;
+  }
+  body h4 {
+    font-size: 1.5rem;
+  }
+  body h5,
+  body h6 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1481px) {
+  body a,
+  body p,
+  body table {
+    font-size: 1.125rem;
+  }
+  body h1,
+  body h2 {
+    font-size: 2.75rem;
+  }
+  body h3 {
+    font-size: 2.25rem;
+  }
+  body h4 {
+    font-size: 1.875rem;
+  }
+  body h5 {
+    font-size: 1.5rem;
+  }
+  body h6 {
+    font-size: 1.25rem;
+  }
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body,
+html,
+table {
+  scroll-behavior: smooth;
+}
+
+hr {
+  background: transparent;
+  border: 0;
+  border-bottom: none;
+  border-top: 3px solid rgba(60, 8, 165, 0.3);
+  height: 0;
+  margin: 20px auto;
+  width: 90%;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  text-underline-position: from-font;
+}
+
+.square-btn {
+  transition: all 100ms ease-in-out;
+  font-family: bilo, sans-serif;
+  border-radius: 8px;
+}
+
+.square-btn--teal:not([disabled]):hover,
+.square-btn--teal:not([disabled]):focus {
+  background: rgb(4, 243, 215);
+  border: 2px solid rgb(42, 251, 244);
+  box-shadow: 0 0 0 3px rgba(53, 240, 208, 0.5);
+}
+
+.square-btn--teal:not([disabled]):active {
+  box-shadow: 0 0 0 2px rgba(53, 240, 208, 0.3);
+}
+
+.square-btn--teal:disabled {
+  border: transparent;
+  background-color: #270255;
+  color: #6c48a7;
+}
+
+.square-btn--teal-outline {
+  background-color: transparent;
+}
+
+.square-btn--teal-outline:not([disabled]):hover,
+.square-btn--teal-outline:not([disabled]):focus {
+  box-shadow: 0 0 0 3px rgba(53, 240, 208, 0.5);
+}
+
+.square-btn--teal-outline:disabled {
+  border: transparent;
+  background-color: #2b2d6c;
+  border-color: #2b2d6c;
+  color: #8679b8;
+}
+
+.square-btn--purple {
+  background: rgb(118, 15, 214);
+  border: 2px solid rgb(141, 53, 223);
+  color: white;
+}
+
+.square-btn--purple:not([disabled]):hover,
+.square-btn--purple:not([disabled]):focus {
+  color: white;
+  box-shadow: 0 0 0 3px rgba(112, 13, 242, 0.25);
+}
+
+.square-btn--purple:not([disabled]):active {
+  box-shadow: 0 0 0 2px #4c249f4c;
+}
+
+.square-btn--purple:disabled {
+  border: transparent;
+  background-color: #2b2d6c;
+  border-color: #2b2d6c;
+  color: #8679b8;
+}
+
+.square-btn--purple-outline {
+  color: #8b5ef5;
+  background-color: transparent;
+  border-color: #5d34a2;
+}
+
+.square-btn--purple-outline:not([disabled]):hover,
+.square-btn--purple-outline:not([disabled]):focus {
+  box-shadow: 0 0 0 3px rgba(104, 9, 209, 0.563);
+  color: #baa2f2;
+}
+
+.square-btn--purple-outline:not([disabled]):active {
+  box-shadow: 0 0 0 2px rgba(60, 20, 184, 0.171);
+}
+
+.square-btn--purple-outline:disabled {
+  opacity: 50%;
+}
+
+.square-btn--sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.square-btn--md {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}
+
+.square-btn--lg {
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+}
+
+.hero-section,
+.about-section,
+.what-is-glaum-section {
+  background: linear-gradient(135deg, var(--color-purple1), var(--color-purple2));
+  transition: background-image 0.3s ease-in-out;
+  position: relative;
+}
+
+.hero-section[style*="background-image"],
+.about-section[style*="background-image"],
+.what-is-glaum-section[style*="background-image"] {
+  background: none;
+}
+
+.hero-section {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.hero-section::before,
+.about-section::before,
+.what-is-glaum-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-section.loading::before,
+.about-section.loading::before,
+.what-is-glaum-section.loading::before {
+  opacity: 1;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.hero-section,
+.about-section,
+.what-is-glaum-section {
+  contain: layout style paint;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
