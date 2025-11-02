@@ -71,7 +71,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#8038f4" />
       </head>
-      <body className="text-black leading-loose" style={{ fontFamily: 'Open Sans', backgroundColor: 'transparent', backgroundImage: 'none' }}>
+      <body className="text-black leading-loose bg-[var(--color-purple2)] bg-[url('/img/homepage.png')] bg-cover bg-no-repeat" style={{ fontFamily: 'Open Sans' }}>
         <div className="w-full bg-body z-[9999] mx-auto l-0 r-0 fixed bg-blue-900 bg-opacity-10 backdrop-blur header" style={{ zIndex: 9999 }}>
           <div className="flex flex-col sm:flex-row justify-between items-center mx-auto max-w-screen-lg px-4 sm:px-8 py-4 sm:py-6">
             <a

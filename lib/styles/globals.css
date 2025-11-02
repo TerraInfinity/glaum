@@ -13,7 +13,7 @@
   font-style: normal;
 }
 
-* {
+:root {
   --color-purple1: #8038f4;
   --color-purple2: #ac63f4;
   --color-purple3: #884389;
@@ -21,7 +21,7 @@
 }
 
 body {
-  background: #ac63f4;
+  background: var(--color-purple2);
   background-image: url('/img/homepage.png');
   background-size: cover; 
   background-repeat: no-repeat; 
