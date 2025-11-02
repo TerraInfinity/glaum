@@ -247,13 +247,13 @@ a {
 
 /* Teal Outline */
 .square-btn--teal-outline {
-  @apply border-pt-teal-bright text-pt-teal-bright;
+  @apply border-2 border-teal-500 text-teal-500;
   background-color: transparent;
 }
 
 .square-btn--teal-outline:not([disabled]):hover,
 .square-btn--teal-outline:not([disabled]):focus {
-  @apply text-pt-teal-bright;
+  @apply text-teal-500;
   box-shadow: 0 0 0 3px rgba(53, 240, 208, 0.5);
 }
 
@@ -277,7 +277,7 @@ a {
 
 .square-btn--purple:not([disabled]):hover,
 .square-btn--purple:not([disabled]):focus {
-  @apply text-white bg-pt-purple-bright;
+  @apply text-white bg-purple-600;
   box-shadow: 0 0 0 3px rgba(112, 13, 242, 0.25);
 }
 
@@ -301,7 +301,7 @@ a {
 
 .square-btn--purple-outline:not([disabled]):hover,
 .square-btn--purple-outline:not([disabled]):focus {
-  @apply text-purple;
+  @apply text-purple1;
   box-shadow: 0 0 0 3px rgba(104, 9, 209, 0.563);
   color: #baa2f2;
 }
@@ -316,7 +316,7 @@ a {
 
 /* Orange */
 .square-btn--orange {
-  @apply border-orange text-white bg-orange;
+  @apply border-2 border-orange-500 text-white bg-orange-500;
 }
 
 .square-btn--orange:not([disabled]):hover,
@@ -335,7 +335,7 @@ a {
 
 /* Orange Outline */
 .square-btn--orange-outline {
-  @apply border-orange text-orange;
+  @apply border-2 border-orange-500 text-orange-500;
   background-color: transparent;
 }
 

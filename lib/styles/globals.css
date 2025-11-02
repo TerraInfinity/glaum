@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optional: import glaum.css */
+@import '../../docs/css/glaum.css';
+
 @font-face {
   font-family: 'tokyo_dreamsregular';
   src: url('/css/fonts/tokyodreams_1-webfont.woff2') format('woff2'),
