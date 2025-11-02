@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Metadata } from 'next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
@@ -29,6 +30,8 @@ export const metadata: Metadata = {
 
 export default function BylawsLayout({
   children,
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <div style={{ backgroundImage: 'url(/img/structure.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundColor: 'transparent' }}>
@@ -41,4 +44,3 @@ export default function BylawsLayout({
     </div>
   )
 }
-

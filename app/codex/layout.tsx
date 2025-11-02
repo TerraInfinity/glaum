@@ -1,5 +1,9 @@
+import React from 'react';
+
 export default function CodexLayout({
   children,
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <div style={{ backgroundImage: 'url(/img/codex.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundColor: 'transparent' }}>

@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react';
 import { motion } from 'framer-motion'
 
 export default function Codex() {
@@ -74,7 +75,6 @@ export default function Codex() {
             <motion.div 
               className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20 tenets-glow"
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
               animate={{
                 filter: [
                   'drop-shadow(0 0 4px rgba(128, 56, 244, 0.6))',
@@ -85,6 +85,7 @@ export default function Codex() {
                 ]
               }}
               transition={{
+                scale: { duration: 0.2 },
                 filter: {
                   duration: 3,
                   repeat: Infinity,
@@ -104,7 +105,6 @@ export default function Codex() {
             <motion.div 
               className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20 tenets-glow"
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
               animate={{
                 filter: [
                   'drop-shadow(0 0 4px rgba(128, 56, 244, 0.6))',
@@ -115,6 +115,7 @@ export default function Codex() {
                 ]
               }}
               transition={{
+                scale: { duration: 0.2 },
                 filter: {
                   duration: 3,
                   repeat: Infinity,
@@ -134,7 +135,6 @@ export default function Codex() {
             <motion.div 
               className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20 tenets-glow"
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
               animate={{
                 filter: [
                   'drop-shadow(0 0 4px rgba(128, 56, 244, 0.6))',
@@ -145,6 +145,7 @@ export default function Codex() {
                 ]
               }}
               transition={{
+                scale: { duration: 0.2 },
                 filter: {
                   duration: 3,
                   repeat: Infinity,
@@ -164,7 +165,6 @@ export default function Codex() {
             <motion.div 
               className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20 tenets-glow"
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
               animate={{
                 filter: [
                   'drop-shadow(0 0 4px rgba(128, 56, 244, 0.6))',
@@ -175,6 +175,7 @@ export default function Codex() {
                 ]
               }}
               transition={{
+                scale: { duration: 0.2 },
                 filter: {
                   duration: 3,
                   repeat: Infinity,

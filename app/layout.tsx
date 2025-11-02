@@ -1,3 +1,4 @@
+import React from 'react';
 import '../lib/styles/globals.css'
 import PerformanceMonitor from './performance'
 import Footer from './footer'
@@ -55,6 +56,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <html className="seamless-gradient-wrapper" lang="en">

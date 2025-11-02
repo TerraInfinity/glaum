@@ -1,5 +1,9 @@
+import React from 'react';
+
 export default function ParticipateLayout({
   children,
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <div style={{ backgroundImage: 'url(/img/participate.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundColor: 'transparent' }}>

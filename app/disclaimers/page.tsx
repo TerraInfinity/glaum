@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react';
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -27,7 +28,7 @@ export default function Disclaimers() {
   }
 
   return (
-    <>
+    <div>
       <AnimatePresence>
         {showPopup && (
           <motion.div
@@ -161,17 +162,17 @@ export default function Disclaimers() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
 // Cookie utility functions
-function setCookie(name, value, expiryDate) {
+function setCookie(name: string, value: string, expiryDate: Date): void {
   const cookie = `${name}=${value}; expires=${expiryDate.toUTCString()}; path=/`
   document.cookie = cookie
 }
 
-function getCookie(name) {
+function getCookie(name: string): string | null {
   const nameEQ = `${name}=`
   const ca = document.cookie.split(';')
   for (let i = 0; i < ca.length; i++) {

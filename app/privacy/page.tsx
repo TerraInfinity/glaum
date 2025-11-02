@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Privacy() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>
@@ -80,7 +82,7 @@ export default function Privacy() {
             </p>
             
             <h2 className="text-2xl font-semibold mb-4 mt-8" style={{ fontFamily: 'tokyo_dreamsregular' }}>
-              6. Your Rights (GDPR & Canadian Privacy Law)
+              6. Your Rights (GDPR &amp; Canadian Privacy Law)
             </h2>
             <p className="mb-4">
               If you are in the European Economic Area (EEA) or Canada, you have certain data protection rights:
@@ -133,13 +135,13 @@ export default function Privacy() {
             </p>
             
             <div className="text-center mt-12">
-            <h4 style={{ fontFamily: 'tokyo_dreamsregular' }}>
-              ˚ ˚ ˚  Glåüm ˚ ˚ ˚
-            </h4>
+              <h4 style={{ fontFamily: 'tokyo_dreamsregular' }}>
+                ˚ ˚ ˚  Glåüm ˚ ˚ ˚
+              </h4>
+            </div>
           </div>
         </div>
       </div>
     </div>
   )
 }
-

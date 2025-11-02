@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Participate() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>
