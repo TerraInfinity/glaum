@@ -2,14 +2,14 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/robots.txt/route": "app/robots.txt/route.js",
   "/page": "app/page.js",
+  "/sitemap/page": "app/sitemap/page.js",
   "/about/page": "app/about/page.js",
-  "/participate/page": "app/participate/page.js",
   "/codex/page": "app/codex/page.js",
+  "/participate/page": "app/participate/page.js",
   "/structure/page": "app/structure/page.js",
   "/ai-ethics/page": "app/ai-ethics/page.js",
-  "/bylaws/page": "app/bylaws/page.js",
-  "/sitemap/page": "app/sitemap/page.js",
   "/disclaimers/page": "app/disclaimers/page.js",
   "/privacy/page": "app/privacy/page.js",
+  "/bylaws/page": "app/bylaws/page.js",
   "/style-guide/page": "app/style-guide/page.js"
 }

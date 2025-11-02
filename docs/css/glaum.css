@@ -34,7 +34,7 @@ background-position: center;  */
 }
 
 h1,
-h2 
+h2,
 h3,
 h4,
 h5,
@@ -51,35 +51,6 @@ h6 {
   position: relative;
   z-index: 0;
 }
-
-.seamless-gradient-wrapper::before {
-  content: '';
-  height: 100%;
-  left: 0;
-  width: var(--w);
-  position: fixed;
-  z-index: -1;
-
-  /* background: repeating-linear-gradient(
-    var(--angle),
-    var(--color-purple1),
-    var(--color-purple2),
-    var(--color-purple3),
-    var(--color-purple4),
-    var(--color-purple3),
-    var(--color-purple2),
-    var(--color-purple1) var(--d)
-  );
-
-  background-size: calc(var(--d) / var(--sin)) 100%;
-  animation: seamless-gradient-animation 60s ease-in-out infinite reverse;
-} */
-
-/* @keyframes seamless-gradient-animation {
-  0% {
-    background-position: calc(var(--d) / var(--sin)) 0;
-  }*/
-} 
 
 body,
 html,
@@ -223,7 +194,6 @@ a {
 
 /* Teal */
 
-.square-btn--teal,
 .square-btn--teal {
 }
 
@@ -337,7 +307,7 @@ a {
 
 .square-btn--orange-outline:not([disabled]):hover,
 .square-btn--orange-outline:not([disabled]):focus {
-  @apply text-orange;
+  @apply text-orange-500;
   box-shadow: 0 0 0 3px rgba(211, 120, 2, 0.363);
 }
 
