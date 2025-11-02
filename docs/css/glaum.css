@@ -257,10 +257,6 @@ a {
   box-shadow: 0 0 0 3px rgba(53, 240, 208, 0.5);
 }
 
-.square-btn--teal:not([disabled]):active {
-  box-shadow: 0 0 0 2px rgba(53, 240, 208, 0.3);
-}
-
 .square-btn--teal-outline:disabled {
   @apply border-transparent;
   background-color: #2b2d6c;
