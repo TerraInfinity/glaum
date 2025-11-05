@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Minimal layout for internal style guide routes, disabling indexing while
+ * simply rendering nested previews.
+ */
 export default function StyleGuideLayout({
   children,
 }: {

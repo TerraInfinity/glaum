@@ -9,6 +9,10 @@ interface SwatchProps {
   className?: string
 }
 
+/**
+ * Displays an individual color swatch and exposes click-to-copy behavior for
+ * quick theme exploration.
+ */
 function ColorSwatch({ name, color, hex, className = '' }: SwatchProps) {
   const [copied, setCopied] = useState(false)
 
@@ -46,6 +50,9 @@ function ColorSwatch({ name, color, hex, className = '' }: SwatchProps) {
   )
 }
 
+/**
+ * Provides a reusable snippet for copying curated Tailwind class strings.
+ */
 function ClassCopier({ classes, label }: { classes: string; label: string }) {
   const [copied, setCopied] = useState(false)
 
@@ -73,8 +80,12 @@ function ClassCopier({ classes, label }: { classes: string; label: string }) {
   )
 }
 
+/**
+ * Interactive Glåüm design system reference with live Tailwind swatches and
+ * copy-to-clipboard helpers for consistent styling.
+ */
 export default function StyleGuide() {
-  // Set noindex meta tag on mount
+  // Ensure the playground stays out of search engine indexes
   useEffect(() => {
     if (typeof document !== 'undefined') {
       const metaRobots = document.querySelector('meta[name="robots"]')

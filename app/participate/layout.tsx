@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Layout frame for the Participate page, injecting the recruitment-themed
+ * background template and footer wrapper.
+ */
 export default function ParticipateLayout({
   children,
 }: {

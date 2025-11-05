@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Layout for AI Ethics pages, ensuring consistent metadata and themed
+ * background treatment before rendering nested content.
+ */
 export default function AIEthicsLayout({
   children,
 }: {

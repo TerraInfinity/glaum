@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Renders the About narrative, describing the Glåüm camp experience and
+ * highlighting testimonials that set the community tone.
+ */
 export default function About() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>

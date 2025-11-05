@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Layout scaffold for the Privacy Policy section, providing consistent theming
+ * and metadata for compliance-focused content.
+ */
 export default function PrivacyLayout({
   children,
 }: {

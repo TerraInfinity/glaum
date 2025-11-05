@@ -3,6 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion'
 
+/**
+ * Animates Glåüm's living codex of tenets, pairing motion effects with longform
+ * descriptions to communicate the community's core principles.
+ */
 export default function Codex() {
   return (
     <div className="w-full">

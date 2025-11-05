@@ -3,6 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion'
 
+/**
+ * Showcases Glåüm's perspective on AI ethics using animated cards and
+ * storytelling to explore consent, consciousness, and compassion.
+ */
 export default function AIEthics() {
   return (
     <div className="w-full">
