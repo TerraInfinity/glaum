@@ -3,16 +3,20 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
+/**
+ * Hooks into the client runtime to log media loading performance, exposing
+ * helpers for debugging and optionally forwarding timing data to analytics.
+ */
 export default function PerformanceMonitor() {
   const pathname = usePathname()
-  
+
   useEffect(() => {
-    // Skip if pathname includes _deprecated
+    // Skip tracking if we're rendering a legacy static export
     if (pathname?.includes('_deprecated')) {
       return
     }
 
-    // Performance metrics
+    // Aggregate per-page timing counters to summarize network-heavy assets
     const metrics: {
       pageLoadStart: number
       imagesLoaded: number
@@ -91,7 +95,7 @@ export default function PerformanceMonitor() {
       video.src = videoSrc
     }
 
-    // IntersectionObserver for lazy video loading
+      // IntersectionObserver tracks lazy videos so we can register load times
     const videoObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

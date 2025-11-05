@@ -5,6 +5,12 @@ import Footer from './footer'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 
+/**
+ * Root layout applied to every page, configuring global metadata, shared
+ * navigation, and cross-cutting utilities like analytics and performance
+ * monitoring.
+ */
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
 
 export const metadata: Metadata = {

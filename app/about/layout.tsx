@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Layout wrapper for About subpages, applying the themed background and
+ * footer handoff expected for the Glåüm story content.
+ */
 export default function AboutLayout({
   children,
 }: {

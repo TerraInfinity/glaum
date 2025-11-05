@@ -2,6 +2,10 @@ export const metadata = {
   title: 'Sitemap',
 };
 
+/**
+ * Simple client-rendered sitemap listing that mirrors key marketing routes for
+ * quick human navigation.
+ */
 export default function Sitemap() {
   return (
     <div className="p-8 max-w-2xl mx-auto">

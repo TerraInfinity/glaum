@@ -2,6 +2,11 @@
 
 import { Instagram, Music2, Youtube, MessageCircle } from 'lucide-react'
 
+/**
+ * Site-wide footer displaying copyright messaging alongside placeholder
+ * social media entry points. Update the href values when real destinations are
+ * available.
+ */
 export default function Footer() {
   const socialLinks = [
     {

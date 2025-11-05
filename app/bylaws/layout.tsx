@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Layout container for the Bylaws section, applying governance-specific
+ * metadata and background imagery before rendering content.
+ */
 export default function BylawsLayout({
   children,
 }: {

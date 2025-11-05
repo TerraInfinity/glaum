@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Explains Glåüm's organizational roles and escalation pathways, helping
+ * visitors understand how community stewardship functions.
+ */
 export default function Structure() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>

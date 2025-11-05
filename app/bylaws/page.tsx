@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Outlines Glåüm's governance agreements, detailing the roles of the Mothers
+ * and Council of Attunement with accessible, ceremonial styling.
+ */
 export default function Bylaws() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>

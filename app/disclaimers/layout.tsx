@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Wraps the disclaimers content with consistent background styling and ensures
+ * the proper metadata for satire notices is attached.
+ */
 export default function DisclaimersLayout({
   children,
 }: {

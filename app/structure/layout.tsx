@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Structure page layout that overlays the organizational background artwork and
+ * finishes with the standard footer.
+ */
 export default function StructureLayout({
   children,
 }: {

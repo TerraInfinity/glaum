@@ -4,6 +4,10 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+/**
+ * Presents Glåüm's satire disclaimers, including a timed modal experience that
+ * leverages cookies to avoid repeat prompts for returning visitors.
+ */
 export default function Disclaimers() {
   const [showPopup, setShowPopup] = useState(false)
 
@@ -12,7 +16,7 @@ export default function Disclaimers() {
     const disclaimerSeen = getCookie('satire_disclaimer_seen')
     
     if (!disclaimerSeen) {
-      // Small delay to ensure page has loaded
+      // Small delay to ensure page has loaded for better UX before showing modal
       setTimeout(() => {
         setShowPopup(true)
       }, 500)
@@ -20,7 +24,7 @@ export default function Disclaimers() {
   }, [])
 
   const handleAccept = () => {
-    // Set cookie for 30 days
+    // Set cookie for 30 days to throttle how often the modal appears
     const expiryDate = new Date()
     expiryDate.setDate(expiryDate.getDate() + 30)
     setCookie('satire_disclaimer_seen', 'true', expiryDate)

@@ -3,6 +3,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
+/**
+ * Landing page presenting the immersive Glåüm hero experience with parallax
+ * video, lazy-loaded imagery, and animated calls to action.
+ */
+
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)

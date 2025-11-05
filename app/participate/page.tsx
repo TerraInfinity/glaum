@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Provides calls to action for joining Glåüm communities and submitting new
+ * project ideas, linking out to WhatsApp groups and proposal forms.
+ */
 export default function Participate() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>

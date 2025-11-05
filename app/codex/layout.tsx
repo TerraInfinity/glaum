@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Shared layout for Codex entries, layering the custom parchment background and
+ * footer over the mystical reference material.
+ */
 export default function CodexLayout({
   children,
 }: {

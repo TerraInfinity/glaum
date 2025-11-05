@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Shares Glåüm's privacy commitments, emphasizing zero tracking and outlining
+ * data rights for visitors.
+ */
 export default function Privacy() {
   return (
     <div className="mx-auto px-4" style={{ maxWidth: '1200px' }}>
