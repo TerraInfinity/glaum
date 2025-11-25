@@ -42,13 +42,11 @@ export default function Error({
       <div className="text-center max-w-2xl mx-auto">
         <h1 
           className="text-6xl md:text-8xl font-bold mb-4"
-          style={{ fontFamily: "'tokyo_dreamsregular'" }}
         >
           Oops!
         </h1>
         <h2 
           className="text-2xl md:text-4xl mb-6 opacity-70"
-          style={{ fontFamily: "'tokyo_dreamsregular'" }}
         >
           Something went wrong
         </h2>

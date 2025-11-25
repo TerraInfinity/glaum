@@ -49,12 +49,12 @@ export default function ParticipatePage() {
       }}>
         <div className="pt-48 sm:pt-32 pb-20 xs:pb-32 mx-auto bg-white bg-opacity-10">
           <div className="max-w-4xl mx-4 sm:mx-auto text-center">
-            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ fontFamily: "'tokyo_dreamsregular'", color: '#654321' }}>
+            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ color: '#654321' }}>
               Choose Your Portal to Glåüm
             </h1>
             
             <div className="mb-12 text-center">
-              <h2 className="text-2xl font-semibold mb-4" style={{ fontFamily: "'tokyo_dreamsregular'", color: '#654321' }}>
+              <h2 className="text-2xl font-semibold mb-4" style={{ color: '#654321' }}>
                 Glåüm (WhatsApp Community)
               </h2>
               <p className="mb-4">
@@ -82,7 +82,7 @@ export default function ParticipatePage() {
             <br />
             <br />
             
-            <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ fontFamily: "'tokyo_dreamsregular'", color: '#654321' }}>
+            <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ color: '#654321' }}>
               The Children of Venus
             </h2>
             
@@ -132,7 +132,7 @@ export default function ParticipatePage() {
             </div>
           
             <div className="text-center mt-12">
-              <h4 style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+              <h4>
                 ˚ ˚ ˚  Glåüm ˚ ˚ ˚ 
               </h4>
             </div>

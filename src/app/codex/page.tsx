@@ -45,12 +45,12 @@ export default function CodexPage() {
       }}>
         <div className="pt-48 sm:pt-32 pb-20 xs:pb-32 mx-auto bg-white bg-opacity-10">
           <div className="max-w-4xl mx-4 sm:mx-auto">
-            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ fontFamily: "'tokyo_dreamsregular'", color: '#B8860B' }}>
+            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ color: '#B8860B' }}>
               The Tenets of Glåüm
             </h1>
             
             <div className="text-center mb-8">
-              <span style={{ fontFamily: "'tokyo_dreamsregular'" }}>•••</span>
+              <span>•••</span>
             </div>
             
             <div className="mb-8 text-left">
@@ -64,7 +64,7 @@ export default function CodexPage() {
             
             <div className="space-y-8">
               <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                <h3 className="text-xl font-semibold mb-4" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                <h3 className="text-xl font-semibold mb-4">
                   Unconditional Positive Regard
                 </h3>
                 <p>
@@ -113,7 +113,7 @@ export default function CodexPage() {
             </div>
             
             <div className="text-center mt-12">
-              <h4 style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+              <h4>
                 ˚ ˚ ˚  Glåüm ˚ ˚ ˚ 
               </h4>
             </div>

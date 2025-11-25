@@ -9,20 +9,6 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 
-/**
- * Global type declarations for performance tracking.
- * Extends the Window interface to include performance monitoring utilities
- * that are injected by the performance.js script.
- */
-declare global {
-  interface Window {
-    performanceMetrics?: {
-      totalImages: number
-      imagesLoaded: number
-    }
-    trackImageLoad?: (src: string, startTime: number) => void
-  }
-}
 
 /**
  * Homepage Component
@@ -208,7 +194,7 @@ export default function Page() {
           Content may be used in future iterations or moved to a dedicated page. */}
       {/* <div id="philosophy" className="pt-48 sm:pt-64 pb-20 xs:pb-64 mx-auto bg-white bg-opacity-10">
         <div className="max-w-3xl mx-4 sm:mx-auto">
-          <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-lg sm:text-4xl mx-auto main-headline opacity-70 font-normal leading-snug" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+          <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-lg sm:text-4xl mx-auto main-headline opacity-70 font-normal leading-snug">
             Glåüm Philosophy
           </h2>
           <h4 className="mb-4 xs:w-10/12 lg:w-auto text-lg sm:text-2xl mx-auto main-headline opacity-70 font-normal leading-snug" style={{ fontFamily: "'Open Sans'" }}>
@@ -264,7 +250,8 @@ export default function Page() {
               width={1200}
               height={800}
               className="w-full max-w-4xl h-auto"
-              priority // Load with high priority as it's above the fold
+              priority
+              sizes="100vw"
             />
           </div>
         </div>
@@ -369,6 +356,7 @@ export default function Page() {
                 height={900}
                 className="w-full h-auto"
                 priority
+                sizes="100vw"
                 alt="Values of Glåüm"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 text-center">
@@ -501,7 +489,8 @@ export default function Page() {
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority // High priority as it's above the fold
+                  priority
+                  sizes="100vw"
                   alt="Tenet"
                 />
                 {/* Text overlay with responsive sizing */}
@@ -529,6 +518,7 @@ export default function Page() {
                   height={750}
                   className="w-full h-auto"
                   priority
+                  sizes="100vw"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -552,6 +542,7 @@ export default function Page() {
                   height={750}
                   className="w-full h-auto"
                   priority
+                  sizes="100vw"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -575,6 +566,7 @@ export default function Page() {
                   height={750}
                   className="w-full h-auto"
                   priority
+                  sizes="100vw"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -602,6 +594,7 @@ export default function Page() {
                   height={750}
                   className="w-full h-auto"
                   priority
+                  sizes="100vw"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -657,6 +650,7 @@ export default function Page() {
                   height={900}
                   className="w-full h-auto"
                   priority
+                  sizes="100vw"
                   alt="Policy"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -687,6 +681,7 @@ export default function Page() {
                   height={900}
                   className="w-full h-auto"
                   priority
+                  sizes="100vw"
                   alt="Policy"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">

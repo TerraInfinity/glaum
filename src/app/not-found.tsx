@@ -30,13 +30,11 @@ export default function NotFound() {
       <div className="text-center max-w-2xl mx-auto">
         <h1 
           className="text-6xl md:text-8xl font-bold mb-4"
-          style={{ fontFamily: "'tokyo_dreamsregular'" }}
         >
           404
         </h1>
         <h2 
           className="text-2xl md:text-4xl mb-6 opacity-70"
-          style={{ fontFamily: "'tokyo_dreamsregular'" }}
         >
           Page Not Found
         </h2>

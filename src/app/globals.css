@@ -19,21 +19,6 @@
 /* ==================== FONTS & CSS VARIABLES ==================== */
 
 /**
- * Tokyo Dreams Font Face
- * 
- * Custom decorative font used for brand identity (logo, headings).
- * Loaded from external CDN (glaum.ca) for consistency across deployments.
- * Provides woff2 (modern) and woff (fallback) formats for browser compatibility.
- */
-@font-face {
-  font-family: 'tokyo_dreamsregular';
-  src: url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff2') format('woff2'),
-       url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/**
  * CSS Custom Properties (Variables)
  * 
  * Purple color palette used throughout the site for brand consistency.
@@ -138,12 +123,12 @@ table {
 /**
  * Header Class
  * 
- * Typography class for header elements using Tokyo Dreams font.
+ * Typography class for header elements.
  * Used for brand-consistent headings and decorative text.
  * Explicit margin/padding resets ensure consistent spacing.
  */
 .header {
-  font-family: "tokyo_dreamsregular";
+  font-family: bilo, sans-serif;
   font-weight: 400;
   font-style: normal;
   margin: 0;
@@ -157,11 +142,21 @@ table {
 /**
  * Logo Text Class
  * 
- * Utility class for logo text using Tokyo Dreams font.
+ * Utility class for logo text.
  * Ensures brand consistency across logo implementations.
  */
 .logo-text {
-  font-family: "tokyo_dreamsregular";
+  font-family: bilo, sans-serif;
+}
+
+/**
+ * Font Tokyo Class
+ * 
+ * Utility class for decorative headings using bilo font.
+ * Used for brand-consistent headings throughout the site.
+ */
+.font-tokyo {
+  font-family: bilo, sans-serif;
 }
 
 /**
@@ -642,7 +637,7 @@ img {
 }
 
 .tenet-frame-divider {
-  font-family: 'tokyo_dreamsregular', sans-serif;
+  font-family: bilo, sans-serif;
   text-align: center;
   font-size: 1.5rem;
   color: #B8860B;
@@ -806,7 +801,7 @@ img {
 }
 
 .policy-frame-divider {
-  font-family: 'tokyo_dreamsregular', sans-serif;
+  font-family: bilo, sans-serif;
   text-align: center;
   font-size: 1.5rem;
   color: #B8860B;

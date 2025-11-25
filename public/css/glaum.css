@@ -18,21 +18,6 @@
 
 /* ==================== FONTS ==================== */
 
-/**
- * Tokyo Dreams Font Face
- * 
- * Custom decorative font used for brand identity (logo, headings).
- * Loaded from external CDN (glaum.ca) for consistency.
- * Provides woff2 (modern) and woff (fallback) formats for browser compatibility.
- */
-@font-face {
-  font-family: 'tokyo_dreamsregular';
-  src: url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff2') format('woff2'),
-       url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* ==================== CSS VARIABLES ==================== */
 
 /**
