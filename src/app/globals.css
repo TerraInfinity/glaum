@@ -1,7 +1,30 @@
+/* ============================================= */
+/* GLOBAL STYLES - Glåüm Website */
+/* ============================================= */
+/* 
+ * This file contains all global styles for the Glåüm website.
+ * It uses Tailwind CSS v4 with custom utilities and component styles.
+ * 
+ * Structure:
+ * - Font definitions and CSS variables
+ * - Custom Tailwind utilities
+ * - Base HTML/body styles
+ * - Typography system
+ * - Component styles (buttons, sections, frames)
+ * - Responsive design utilities
+ */
+
 @import "tailwindcss";
 
-/* ==== Fonts & Variables ==== */
+/* ==================== FONTS & CSS VARIABLES ==================== */
 
+/**
+ * Tokyo Dreams Font Face
+ * 
+ * Custom decorative font used for brand identity (logo, headings).
+ * Loaded from external CDN (glaum.ca) for consistency across deployments.
+ * Provides woff2 (modern) and woff (fallback) formats for browser compatibility.
+ */
 @font-face {
   font-family: 'tokyo_dreamsregular';
   src: url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff2') format('woff2'),
@@ -10,36 +33,61 @@
   font-style: normal;
 }
 
+/**
+ * CSS Custom Properties (Variables)
+ * 
+ * Purple color palette used throughout the site for brand consistency.
+ * Defined as CSS variables for easy theme updates and maintenance.
+ * Applied globally via * selector for universal access.
+ */
 * {
-  --color-purple1: #8038f4;
-  --color-purple2: #ac63f4;
-  --color-purple3: #884389;
-  --color-purple4: #7862c3;
+  --color-purple1: #8038f4; /* Primary purple - main brand color */
+  --color-purple2: #ac63f4; /* Secondary purple - lighter variant */
+  --color-purple3: #884389; /* Tertiary purple - muted variant */
+  --color-purple4: #7862c3; /* Quaternary purple - blue-tinted variant */
 }
 
-/* ==== Custom Utilities (Migration from v3 config) ==== */
-/* These allow your existing @apply rules to work in v4 */
+/* ==================== CUSTOM UTILITIES (Tailwind v4 Migration) ==================== */
+/* 
+ * Custom utility classes for Tailwind CSS v4.
+ * These utilities were created during migration from Tailwind v3 to v4
+ * to maintain compatibility with existing @apply rules in component styles.
+ * 
+ * @utility is a Tailwind v4 directive that creates reusable utility classes.
+ */
+@utility border-pt-teal-bright { border-color: #00f5ff; } /* Bright teal border */
+@utility text-pt-teal-bright   { color: #00f5ff; }         /* Bright teal text */
+@utility bg-pt-purple-bright   { background-color: #a855f7; } /* Bright purple background */
+@utility text-purple           { color: #a855f7; }         /* Purple text */
+@utility border-orange         { border-color: #f97316; }  /* Orange border */
+@utility text-orange           { color: #f97316; }         /* Orange text */
+@utility bg-orange             { background-color: #f97316; } /* Orange background */
 
-@utility border-pt-teal-bright { border-color: #00f5ff; }
-@utility text-pt-teal-bright   { color: #00f5ff; }
-@utility bg-pt-purple-bright   { background-color: #a855f7; }
-@utility text-purple           { color: #a855f7; }
-@utility border-orange         { border-color: #f97316; }
-@utility text-orange           { color: #f97316; }
-@utility bg-orange             { background-color: #f97316; }
+/* ==================== BASE STYLES ==================== */
 
-/* ==== Base Styles ==== */
-
+/**
+ * Body Background
+ * 
+ * Sets the base background color and image for the entire site.
+ * Background image is loaded from external CDN and covers the full viewport.
+ * The purple background (#D239F8) matches the Glåüm brand color.
+ */
 body {
-  background: #D239F8;
-  background-image: url('https://glaum.ca/img/homepage.png');
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  font-family: "Open Sans";
-  letter-spacing: 0.025em;
-  color: white;
+  background: #D239F8; /* Glåüm brand purple - fallback if image fails to load */
+  background-image: url('https://glaum.ca/img/homepage.png'); /* Full-page background texture */
+  background-size: cover; /* Cover entire viewport */
+  background-repeat: no-repeat; /* Single image, no tiling */
+  font-family: "Open Sans"; /* Primary body font */
+  letter-spacing: 0.025em; /* Slight letter spacing for readability */
+  color: white; /* Default text color for contrast against purple background */
 }
 
+/**
+ * HTML Element
+ * 
+ * Ensures html element takes full height for proper layout calculations.
+ * Relative positioning enables absolute positioning of child elements.
+ */
 html {
   height: 100%;
   margin: 0;
@@ -47,25 +95,53 @@ html {
   position: relative;
 }
 
+/**
+ * Body Element (Layout)
+ * 
+ * Full height body with minimum viewport height to prevent content cutoff.
+ * Relative positioning for absolute child elements.
+ */
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  min-height: 100vh; /* Minimum full viewport height */
   position: relative;
 }
 
+/**
+ * Global Typography & Interaction Settings
+ * 
+ * Applied to body, html, and table elements for consistent base styles.
+ * 
+ * -webkit-tap-highlight-color: Removes blue highlight on mobile taps for cleaner UX
+ * font-feature-settings: Enables OpenType features:
+ *   - kern: Kerning (letter spacing adjustments)
+ *   - liga: Standard ligatures
+ *   - calt: Contextual alternates
+ *   - pnum: Proportional numbers
+ *   - tnum/onum/lnum: Disabled tabular/oldstyle/lining numbers
+ *   - dlig: Disabled discretionary ligatures
+ * scroll-behavior: Smooth scrolling for anchor links
+ */
 body,
 html,
 table {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight */
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 0, 'lnum' 0, 'dlig' 0;
-  font-weight: 200;
-  scroll-behavior: smooth;
+  font-weight: 200; /* Light font weight for elegant appearance */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
-/* ==== Typography ==== */
+/* ==================== TYPOGRAPHY SYSTEM ==================== */
 
+/**
+ * Header Class
+ * 
+ * Typography class for header elements using Tokyo Dreams font.
+ * Used for brand-consistent headings and decorative text.
+ * Explicit margin/padding resets ensure consistent spacing.
+ */
 .header {
   font-family: "tokyo_dreamsregular";
   font-weight: 400;
@@ -78,30 +154,62 @@ table {
   padding-bottom: 0;
 }
 
+/**
+ * Logo Text Class
+ * 
+ * Utility class for logo text using Tokyo Dreams font.
+ * Ensures brand consistency across logo implementations.
+ */
 .logo-text {
   font-family: "tokyo_dreamsregular";
 }
 
+/**
+ * Font Averta Bold Class
+ * 
+ * Legacy class name (kept for compatibility).
+ * Actually uses Open Sans with semibold weight (600).
+ * Used for emphasized text that needs more weight than default.
+ */
 .font-averta-bold {
   font-family: "Open Sans";
   font-weight: 600;
 }
 
+/**
+ * Heading Elements (h1-h6)
+ * 
+ * All headings use the 'bilo' font family (loaded via Typekit).
+ * This provides visual hierarchy distinct from body text.
+ */
 h1, h2, h3, h4, h5, h6 {
   font-family: bilo;
 }
 
+/**
+ * Body Heading Styles
+ * 
+ * Headings within body context have bold weight (700) and no margins.
+ * Margin reset prevents default browser spacing for precise control.
+ */
 body h1, body h2, body h3, body h4, body h5, body h6 {
   font-weight: 700;
   margin-bottom: 0;
   margin-top: 0;
 }
 
+/**
+ * Link Styles
+ * 
+ * Global link styling with smooth color transitions.
+ * Removes default underline and sets cursor to pointer for better UX.
+ * text-underline-position: from-font ensures underlines align with font metrics.
+ */
 body a {
-  transition: color 0.2s ease-out;
-  cursor: pointer;
-  text-decoration: none;
-  text-underline-position: from-font;
+  transition: color 0.2s ease-out; /* Smooth color transition on hover */
+  cursor: pointer; /* Pointer cursor indicates clickability */
+  text-decoration: none; /* Remove default underline */
+  text-underline-position: from-font; /* Align underline with font baseline */
 }
 
 /* Responsive Typography */
@@ -150,14 +258,25 @@ blockquote {
   opacity: 0.9;
 }
 
-/* ==== Components ==== */
+/* ==================== COMPONENT STYLES ==================== */
 
-/* -- Buttons -- */
+/* ========== BUTTON COMPONENTS ========== */
 
+/**
+ * Square Button Base Class
+ * 
+ * Base button component with consistent styling.
+ * Used as foundation for all button variants (teal, purple, orange, etc.).
+ * 
+ * Design decisions:
+ * - 100ms transition: Fast enough to feel responsive, slow enough to be visible
+ * - bilo font: Matches heading typography for visual consistency
+ * - 8px border-radius: Subtle rounding for modern appearance without being too rounded
+ */
 .square-btn {
-  transition: all 100ms ease-in-out;
-  font-family: bilo, sans-serif;
-  border-radius: 8px;
+  transition: all 100ms ease-in-out; /* Fast, smooth transitions for all properties */
+  font-family: bilo, sans-serif; /* Match heading font for consistency */
+  border-radius: 8px; /* Subtle rounding for modern look */
 }
 
 /* Teal Variant */
@@ -440,23 +559,49 @@ img {
   }
 }
 
-/* ==== Ornate Tenet Frame Styles (Using v1 Image Assets) ==== */
+/* ==================== ORNATE FRAME STYLES ==================== */
+/* 
+ * Frame components for displaying Tenets and Policies.
+ * Uses ornate decorative frame images with text overlaid via absolute positioning.
+ * These frames provide visual consistency and brand identity throughout the site.
+ */
 
+/**
+ * Tenet Frame Wrapper
+ * 
+ * Container for displaying Tenets of Glåüm in ornate frames.
+ * 
+ * Design features:
+ * - Relative positioning enables absolute positioning of child elements
+ * - Max-width: 56rem (4xl) for optimal reading width
+ * - Fixed height: 600px provides consistent frame sizing
+ * - Hover scale effect: 1.05x scale on hover for interactive feedback
+ * 
+ * The frame image is displayed as a background, with text absolutely positioned
+ * on top using flexbox centering for perfect alignment.
+ */
 .tenet-frame-wrapper {
-  position: relative;
+  position: relative; /* Enables absolute positioning of child elements */
   width: 100%;
-  max-width: 56rem; /* 4xl */
-  margin: 0 auto 2rem;
-  height: 600px;
+  max-width: 56rem; /* 4xl - optimal reading width */
+  margin: 0 auto 2rem; /* Centered with bottom margin */
+  height: 600px; /* Fixed height for consistent frame display */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Smooth hover animation */
 }
 
+/**
+ * Tenet Frame Hover Effect
+ * 
+ * Subtle scale-up on hover provides visual feedback and interactivity.
+ * 1.05x scale is subtle enough to not be jarring but noticeable enough
+ * to indicate the element is interactive.
+ */
 .tenet-frame-wrapper:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* 5% scale increase on hover */
 }
 
 .tenet-frame-bg {
@@ -804,24 +949,47 @@ img {
   }
 }
 
-/* Hero Card - Centered Card Design */
-/* 
- * Wrapper: Flexbox container for vertical/horizontal centering
- * Uses min-height: 100vh to fill viewport, centers card both axes
+/* ==================== HERO CARD - CENTERED CARD DESIGN ==================== */
+
+/**
+ * Hero Wrapper
+ * 
+ * Flexbox container that centers the hero card both vertically and horizontally.
+ * 
+ * Design decisions:
+ * - Flexbox centering: Simplest way to center content in both axes
+ * - Padding-top: calc(80px + 1rem) accounts for fixed header height (80px) plus spacing
+ * - Background color: Matches Glåüm brand purple (#D239F8)
+ * 
+ * The wrapper provides the container for the hero card, which is dynamically sized
+ * by JavaScript to maintain the image's natural aspect ratio.
  */
 .hero-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #D239F8;
-  padding: calc(80px + 1rem) 0.5rem 1rem;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  background-color: #D239F8; /* Glåüm brand purple */
+  padding: calc(80px + 1rem) 0.5rem 1rem; /* Header height + spacing, minimal side padding */
 }
 
-/* 
- * Hero Card: Centered card element with breathing room
- * Sizing: Max 80vw width on desktop (80% viewport), 95% on mobile
- * Height: Calculated by JS based on image aspect ratio to maintain natural proportions
- * Background: contain ensures no cropping/stretching, preserves aspect ratio
+/**
+ * Hero Card
+ * 
+ * Centered card element displaying the hero family image.
+ * 
+ * Key features:
+ * - Dynamic sizing: Width and height calculated by JavaScript based on image aspect ratio
+ * - Background image: Uses 'contain' to preserve aspect ratio without cropping
+ * - Responsive: 80vw on desktop, 98% on mobile for optimal viewing
+ * - Aspect ratio fallback: 16:9 default until JavaScript calculates actual ratio
+ * 
+ * Why JavaScript sizing:
+ * CSS alone cannot read an image's natural dimensions to calculate container height.
+ * JavaScript reads the image's naturalWidth/naturalHeight and calculates the proper
+ * container dimensions to maintain the image's aspect ratio without distortion.
+ * 
+ * The 0.85 multiplier in JavaScript slightly reduces the calculated height to add
+ * visual breathing room and prevent the card from feeling too tall.
  */
 #hero-card,
 .hero-card {
@@ -830,24 +998,24 @@ img {
   max-width: 80vw;
   
   /* Height: Set by JavaScript based on image aspect ratio, use aspect-ratio as fallback */
-  min-height: 400px;
-  height: auto;
+  min-height: 400px; /* Minimum height for desktop */
+  height: auto; /* Allow JavaScript to set explicit height */
   aspect-ratio: 16 / 9; /* Default aspect ratio until JS calculates actual */
   
   /* Background image: contain ensures no cropping/stretching, preserves aspect ratio */
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background-size: contain; /* Fit entire image without cropping */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat; /* Single image, no tiling */
   
   /* Centering: margin auto for horizontal centering within flex container */
   margin: 0 auto;
   
-  /* No borders, shadows, or rounded corners */
+  /* No borders, shadows, or rounded corners - clean, minimal design */
   border: none;
   border-radius: 0;
   box-shadow: none;
   
-  /* Positioning: relative for absolute child elements */
+  /* Positioning: relative for absolute child elements (if needed) */
   position: relative;
   
   /* Prevent overflow on small screens */
@@ -857,17 +1025,26 @@ img {
   display: block;
 }
 
-/* Responsive adjustments for mobile */
+/**
+ * Responsive Adjustments for Mobile
+ * 
+ * Mobile-specific styles that override desktop defaults for better mobile UX.
+ * 
+ * Changes:
+ * - Increased width: 98% on mobile (vs 80vw desktop) to maximize screen usage
+ * - Reduced padding: 0.25rem side padding (vs 0.5rem) for more content space
+ * - Reduced min-height: 300px (vs 400px) for better mobile viewport usage
+ */
 @media (max-width: 768px) {
   #hero-card,
   .hero-card {
     /* Mobile: increase to 98% width with minimal padding */
     width: 98%;
     max-width: 98%;
-    min-height: 300px;
+    min-height: 300px; /* Smaller minimum height for mobile */
   }
   
   .hero-wrapper {
-    padding: 80px 0.25rem 1rem;
+    padding: 80px 0.25rem 1rem; /* Reduced side padding for mobile */
   }
 }

@@ -1,27 +1,80 @@
 {
   "compilerOptions": {
+    // =============================================
+    // TypeScript Compiler Options
+    // =============================================
+    
+    // Target JavaScript version for compilation
+    // ES2017 provides good browser support while enabling modern features
     "target": "ES2017",
+    
+    // Type definitions to include
+    // dom: Browser DOM APIs (document, window, etc.)
+    // dom.iterable: Iterable DOM collections (NodeList, etc.)
+    // esnext: Latest ECMAScript features
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    
+    // Allow JavaScript files alongside TypeScript
+    // Enables gradual migration and mixing of .js and .ts files
     "allowJs": true,
+    
+    // Skip type checking of declaration files (.d.ts)
+    // Improves compilation speed by not checking third-party types
     "skipLibCheck": true,
+    
+    // Enable all strict type checking options
+    // Ensures type safety and catches potential runtime errors at compile time
     "strict": true,
+    
+    // Don't emit output files (Next.js handles compilation)
+    // TypeScript only type-checks, Next.js handles the actual build
     "noEmit": true,
+    
+    // Enable ES module interop for CommonJS compatibility
+    // Allows importing CommonJS modules with default import syntax
     "esModuleInterop": true,
+    
+    // Module system: ESNext modules (import/export)
     "module": "esnext",
+    
+    // Module resolution strategy optimized for bundlers
+    // Works with Next.js's bundler to resolve modules correctly
     "moduleResolution": "bundler",
+    
+    // Allow importing JSON files as modules
     "resolveJsonModule": true,
+    
+    // Treat each file as a separate module
+    // Required for proper tree-shaking and code splitting
     "isolatedModules": true,
+    
+    // Preserve JSX for Next.js to transform
+    // Next.js handles JSX transformation, not TypeScript
     "jsx": "preserve",
+    
+    // Enable incremental compilation for faster rebuilds
+    // TypeScript caches compilation results for faster subsequent builds
     "incremental": true,
+    
+    // TypeScript plugins
     "plugins": [
       {
+        // Next.js plugin for enhanced TypeScript support
+        // Provides better type checking for Next.js-specific features
         "name": "next"
       }
     ],
+    
+    // =============================================
+    // Path Aliases
+    // =============================================
+    // Path mapping for cleaner imports
+    // Allows: import Component from '@/components/Component'
+    // Instead of: import Component from '../../components/Component'
     "paths": {
       "@/*": [
         "./src/*"

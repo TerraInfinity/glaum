@@ -1,10 +1,39 @@
+// =============================================
+// Structure Page Component
+// =============================================
+// 
+// Displays information about the governance structure of Glåüm.
+// Features two main sections:
+// 1. Mothers of Glåüm - The matriarchal council
+// 2. Council of Attunement - Policies for harm and disruption
+//
+// Uses a full-page background image with semi-transparent content overlay.
+
 import type { Metadata } from 'next'
 
+/**
+ * Page metadata for SEO and browser display.
+ */
 export const metadata: Metadata = {
   title: 'Glåüm Structure',
   description: 'Mothers of Glåüm and Council of Attunement - The structure and governance of the Glåüm community.',
 }
 
+/**
+ * StructurePage Component
+ * 
+ * Displays the organizational structure and governance policies of Glåüm.
+ * 
+ * Sections:
+ * - Mothers of Glåüm: Explains the role of the matriarchal council
+ * - When a Council Cannot Reach Resolution: Process for difficult decisions
+ * - Council of Attunement: Policies for handling harm and disruption
+ * 
+ * The page provides transparency about how the community is organized
+ * and how conflicts or issues are addressed.
+ * 
+ * @returns {JSX.Element} Structure page with governance information
+ */
 export default function StructurePage() {
   return (
     <>

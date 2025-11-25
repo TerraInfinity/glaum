@@ -1,25 +1,68 @@
+/* ============================================= */
+/* GLAUM.CSS - Static HTML Site Stylesheet */
+/* ============================================= */
+/* 
+ * Custom stylesheet for the static HTML version of the Glåüm website.
+ * This file is used by HTML files in the public/ directory (index.html, codex.html, etc.).
+ * 
+ * Note: The Next.js React app uses src/app/globals.css instead.
+ * This file provides styles for the static HTML pages.
+ * 
+ * Structure:
+ * - Font definitions
+ * - CSS custom properties (variables)
+ * - Base body/html styles
+ * - Typography system
+ * - Component styles
+ */
+
+/* ==================== FONTS ==================== */
+
+/**
+ * Tokyo Dreams Font Face
+ * 
+ * Custom decorative font used for brand identity (logo, headings).
+ * Loaded from external CDN (glaum.ca) for consistency.
+ * Provides woff2 (modern) and woff (fallback) formats for browser compatibility.
+ */
 @font-face {
   font-family: 'tokyo_dreamsregular';
   src: url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff2') format('woff2'),
        url('https://glaum.ca/css/fonts/tokyodreams_1-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
 }
 
+/* ==================== CSS VARIABLES ==================== */
+
+/**
+ * CSS Custom Properties (Variables)
+ * 
+ * Purple color palette used throughout the static HTML site for brand consistency.
+ * Defined as CSS variables for easy theme updates and maintenance.
+ */
 * {
-  --color-purple1: #8038f4;
-  --color-purple2: #ac63f4;
-  --color-purple3: #884389;
-  --color-purple4: #7862c3;
+  --color-purple1: #8038f4; /* Primary purple - main brand color */
+  --color-purple2: #ac63f4; /* Secondary purple - lighter variant */
+  --color-purple3: #884389; /* Tertiary purple - muted variant */
+  --color-purple4: #7862c3; /* Quaternary purple - blue-tinted variant */
 }
 
+/* ==================== BASE STYLES ==================== */
+
+/**
+ * Body Background
+ * 
+ * Sets the base background color and image for the static HTML site.
+ * Background image is loaded from external CDN and covers the full viewport.
+ * The purple background (#ac63f4) matches the Glåüm brand color.
+ */
 body {
-  background: #ac63f4;
+  background: #ac63f4; /* Glåüm brand purple - fallback if image fails to load */
   /* background-image: url('https://glaum.ca/img/homepage.png'); */
-  background-image: url('https://glaum.ca/img/homepage.png');
-  background-size: cover; 
-  background-repeat: no-repeat; 
+  background-image: url('https://glaum.ca/img/homepage.png'); /* Full-page background texture */
+  background-size: cover; /* Cover entire viewport */
+  background-repeat: no-repeat; /* Single image, no tiling */
 }
 
 /* background-image: url('https://glaum.ca/css/img/homepage.png');

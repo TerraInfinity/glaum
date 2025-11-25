@@ -1,6 +1,27 @@
+<!-- ============================================= -->
+<!-- Glåüm Homepage - Static HTML Version -->
+<!-- ============================================= -->
+<!-- 
+  Static HTML version of the Glåüm homepage.
+  This file is part of a static HTML site that may be served alongside
+  or as an alternative to the Next.js React application.
+  
+  This version uses:
+  - Static HTML structure
+  - Tailwind CSS via CDN
+  - Custom glaum.css stylesheet
+  - Performance monitoring script
+  - Direct image preloading
+  
+  Navigation links to other static HTML pages:
+  - codex.html
+  - structure.html
+  - participate.html
+-->
 <!DOCTYPE html>
 <html class="seamless-gradient-wrapper" lang="en">
   <head>
+    <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -9,16 +30,32 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:200,400,500,600"
       rel="stylesheet"
     />
+    <!-- ========== External Stylesheets and Scripts ========== -->
+    <!-- Google Fonts - Open Sans with multiple weights -->
     <!-- https://fonts.google.com/ -->
+    
+    <!-- Legacy Bootstrap and FontAwesome (commented out, not used) -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+    
+    <!-- Adobe Typekit - Bilo font family for headings -->
     <link rel="stylesheet" href="https://use.typekit.net/avw1eiz.css" />
+    
+    <!-- Tailwind CSS via CDN - Utility-first CSS framework -->
+    <!-- Using CDN version for static HTML (Next.js version uses PostCSS/Tailwind build) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Glåüm stylesheet - Site-specific styles and overrides -->
     <link href="css/glaum.css" rel="stylesheet" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    
+    <!-- Performance monitoring script - Tracks page load metrics -->
     <script src="js/performance.js"></script>
     
-    <!-- Preload critical images -->
+    <!-- ========== Critical Resource Preloading ========== -->
+    <!-- Preload critical images for faster initial render -->
     <link rel="preload" as="image" href="img/optimized/cover-mobile.jpg" media="(max-width: 768px)">
     <link rel="preload" as="image" href="img/optimized/cover.jpg" media="(min-width: 769px)">
     

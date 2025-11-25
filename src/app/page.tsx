@@ -1,8 +1,19 @@
+// =============================================
+// Homepage Component
+// =============================================
+// The main landing page for Glåüm, featuring hero section, testimonials, tenets, policies, and community information.
+// This is a client component that handles dynamic image loading and responsive layout calculations.
+
 'use client'
 
 import { useEffect } from 'react'
 import Image from 'next/image'
 
+/**
+ * Global type declarations for performance tracking.
+ * Extends the Window interface to include performance monitoring utilities
+ * that are injected by the performance.js script.
+ */
 declare global {
   interface Window {
     performanceMetrics?: {
@@ -13,27 +24,76 @@ declare global {
   }
 }
 
+/**
+ * Homepage Component
+ * 
+ * Main landing page displaying:
+ * - Hero section with responsive image card
+ * - Testimonials section
+ * - "What is Glåüm?" introduction
+ * - Glåümises (benefits) section
+ * - Core values and community information
+ * - Tenets of Glåüm
+ * - Policies of the ManyHands
+ * 
+ * Handles dynamic hero image sizing based on viewport and image aspect ratio
+ * to maintain natural proportions across all screen sizes.
+ * 
+ * @returns {JSX.Element} The complete homepage with all sections
+ */
 export default function Page() {
+  /**
+   * Effect hook for hero image dynamic sizing and section background management.
+   * 
+   * This effect:
+   * 1. Calculates hero card dimensions based on image aspect ratio to maintain natural proportions
+   * 2. Handles responsive sizing for mobile vs desktop viewports
+   * 3. Prevents background image conflicts in other sections
+   * 4. Debounces resize events to avoid excessive recalculations
+   * 
+   * Why this approach:
+   * - Hero image must maintain its natural aspect ratio to avoid distortion
+   * - CSS alone can't calculate dimensions based on image natural size
+   * - JavaScript allows us to read image dimensions and calculate container size dynamically
+   * - Debouncing resize events improves performance by reducing calculations during window resizing
+   */
   useEffect(() => {
-    // Hero card: Load image and maintain natural aspect ratio
+    // ========== DOM Element References ==========
+    // Query selectors for elements that need dynamic styling
     const heroCard = document.querySelector('.hero-card')
     const aboutSection = document.querySelector('.about-section')
     const whatIsGlaumSection = document.querySelector('.what-is-glaum-section')
     
-    // Load hero image and calculate container height to maintain aspect ratio
+    /**
+     * Loads hero image and calculates container dimensions to maintain natural aspect ratio.
+     * 
+     * Process:
+     * 1. Sets background image immediately for instant display
+     * 2. Creates a temporary Image object to read natural dimensions
+     * 3. Calculates container width based on viewport (80vw desktop, 98% mobile)
+     * 4. Calculates height using aspect ratio to prevent distortion
+     * 5. Applies dimensions to maintain natural proportions
+     * 
+     * The 0.85 multiplier slightly reduces the calculated height to add breathing room
+     * and prevent the card from feeling too tall on the page.
+     */
     function loadHeroImage() {
       if (!heroCard) return
+      
       // Use the hero-family-mobile.webp image for all screen sizes
+      // This single image works well across breakpoints, reducing complexity
       const imageSrc = '/images/hero-family-mobile.webp'
       const cardEl = heroCard as HTMLElement
       
-      // Set background image immediately so it's visible
+      // Set background image immediately so it's visible before JS calculations complete
+      // This prevents a flash of empty space on initial load
       cardEl.style.backgroundImage = `url('${imageSrc}')`
-      cardEl.style.backgroundSize = 'contain'
+      cardEl.style.backgroundSize = 'contain' // Preserve aspect ratio, no cropping
       cardEl.style.backgroundPosition = 'center center'
       cardEl.style.backgroundRepeat = 'no-repeat'
       
       // Load image to get natural dimensions for aspect ratio calculation
+      // We need the actual image dimensions to calculate proper container height
       const img = document.createElement('img')
       img.onload = function() {
         const imgWidth = img.naturalWidth
@@ -41,18 +101,21 @@ export default function Page() {
         const aspectRatio = imgWidth / imgHeight
         
         // Calculate container width (max 80vw on desktop, 98% on mobile)
+        // Mobile uses more width to maximize screen real estate on small devices
         const maxWidth = window.innerWidth <= 768 ? window.innerWidth * 0.98 : window.innerWidth * 0.80
-        const containerWidth = Math.min(maxWidth, window.innerWidth - 32) // Account for padding
+        const containerWidth = Math.min(maxWidth, window.innerWidth - 32) // Account for padding (16px each side)
         
-        // Calculate height based on aspect ratio to maintain natural proportions, slightly reduced
+        // Calculate height based on aspect ratio to maintain natural proportions
+        // 0.85 multiplier adds slight reduction for visual breathing room
         const calculatedHeight = (containerWidth / aspectRatio) * 0.85
         
-        // Set container dimensions
+        // Set container dimensions to match calculated values
         cardEl.style.width = `${containerWidth}px`
         cardEl.style.height = `${calculatedHeight}px`
       }
       img.onerror = function() {
         // Fallback: set default dimensions if image fails to load
+        // Uses 4:3 aspect ratio as a safe default that works for most images
         const maxWidth = window.innerWidth <= 768 ? window.innerWidth * 0.98 : window.innerWidth * 0.80
         cardEl.style.width = `${maxWidth}px`
         cardEl.style.height = `${maxWidth * 0.75 * 0.85}px` // Default 4:3 aspect ratio, slightly reduced
@@ -61,16 +124,23 @@ export default function Page() {
       img.src = imageSrc
     }
     
-    // Initial load
+    // Initial load - calculate dimensions on component mount
     loadHeroImage()
     
-    // Handle window resize to recalculate dimensions
+    // ========== Resize Handler with Debouncing ==========
+    // Handle window resize to recalculate dimensions when viewport changes
+    // Debouncing prevents excessive recalculations during window resizing
     let resizeTimeout: NodeJS.Timeout
     const handleResize = function() {
       clearTimeout(resizeTimeout)
+      // 250ms debounce: wait for user to finish resizing before recalculating
+      // This improves performance by reducing calculations during active resizing
       resizeTimeout = setTimeout(function() {
         loadHeroImage()
+        
         // Ensure sections maintain no background images
+        // These sections use gradient backgrounds from CSS, so we explicitly remove
+        // any inline background-image styles that might conflict
         if (aboutSection) {
           (aboutSection as HTMLElement).style.backgroundImage = 'none'
         }
@@ -82,27 +152,40 @@ export default function Page() {
     
     window.addEventListener('resize', handleResize)
     
+    // Cleanup: remove event listener on component unmount to prevent memory leaks
     return () => {
       window.removeEventListener('resize', handleResize)
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout)
+      }
     }
   }, [])
 
   return (
     <>
-      {/* Hero Section - Centered Card Design */}
+      {/* ============================================= */}
+      {/* HERO SECTION - Centered Card Design */}
+      {/* ============================================= */}
+      {/* 
+        Hero section featuring a centered card with the hero family image.
+        The card is dynamically sized by JavaScript to maintain the image's natural aspect ratio.
+        Padding-top accounts for fixed header height (80px) plus spacing.
+        Background color matches the site's purple theme (#D239F8).
+      */}
       <div 
         className="hero-wrapper"
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingTop: 'calc(80px + 1rem)',
+          paddingTop: 'calc(80px + 1rem)', // Header height (80px) + spacing (1rem)
           paddingBottom: '1rem',
           paddingLeft: '0.5rem',
           paddingRight: '0.5rem',
-          backgroundColor: '#D239F8',
+          backgroundColor: '#D239F8', // Glåüm brand purple
         }}
       >
+        {/* Hero Card - Dimensions calculated dynamically by useEffect hook above */}
         <div 
           id="hero-card"
           className="hero-card"
@@ -113,13 +196,16 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Hack to fix overlapping on small screens */}
+      {/* ========== Legacy Code (Commented Out) ========== */}
+      {/* Previous hack to fix overlapping on small screens - no longer needed
+          after implementing proper responsive design with dynamic sizing */}
       {/* <div className="block sm:hidden">
         <br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div> */}
-      {/* Hack to fix overlapping on small screens */}
 
-      {/* PHILOSOPHY */}
+      {/* ========== Legacy Code (Commented Out) ========== */}
+      {/* Philosophy section - removed from homepage but kept for reference.
+          Content may be used in future iterations or moved to a dedicated page. */}
       {/* <div id="philosophy" className="pt-48 sm:pt-64 pb-20 xs:pb-64 mx-auto bg-white bg-opacity-10">
         <div className="max-w-3xl mx-4 sm:mx-auto">
           <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-lg sm:text-4xl mx-auto main-headline opacity-70 font-normal leading-snug" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
@@ -137,9 +223,15 @@ export default function Page() {
           </p>
         </div>
       </div> */}
-      {/* PHILOSOPHY */}
 
+      {/* ============================================= */}
       {/* INTRO SECTION */}
+      {/* ============================================= */}
+      {/* 
+        Introduction section welcoming visitors and setting the emotional tone.
+        Uses warm, reassuring language to address potential skepticism or overwhelm.
+        Background uses semi-transparent white overlay for readability over purple background.
+      */}
       <div id="about" className="pt-16 sm:pt-16 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-20 w-full about-section" style={{ backgroundImage: 'none', backgroundColor: '#D239F8' }}>
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
           <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase" style={{ color: '#634D0B' }}>
@@ -158,13 +250,13 @@ export default function Page() {
       </div>
       {/* INTRO SECTION */}
 
-      {/* TESTIMONIALS HEADER */}
       <div id="testimonials" className="pt-8 pb-8 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }}>
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
           <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase" style={{ color: '#634D0B' }}>
             GLÅÜM TESTIMONIALS
           </h2>
           
+          {/* Testimonials displayed as a single image for visual consistency and easy updates */}
           <div className="flex justify-center">
             <Image
               src="/images/testimonials-desktop.webp"
@@ -172,14 +264,20 @@ export default function Page() {
               width={1200}
               height={800}
               className="w-full max-w-4xl h-auto"
-              priority
+              priority // Load with high priority as it's above the fold
             />
           </div>
         </div>
       </div>
-      {/* TESTIMONIALS HEADER */}
 
-      {/* WHAT IS GLAUM */}
+      {/* ============================================= */}
+      {/* WHAT IS GLÅÜM SECTION */}
+      {/* ============================================= */}
+      {/* 
+        Core explanation of what Glåüm is and represents.
+        Uses poetic, philosophical language to describe the concept of attunement and world Glåümination.
+        This section establishes the foundational philosophy of the community.
+      */}
       <div id="what-is-glaum" className="pt-8 sm:pt-8 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full what-is-glaum-section" style={{ backgroundImage: 'none', backgroundColor: '#D239F8' }}>
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
           <h2 className="font-tokyo text-5xl lg:text-7xl font-bold mb-8 text-center uppercase" style={{ color: '#634D0B' }}>
@@ -207,9 +305,9 @@ export default function Page() {
       </div>
       {/* WHAT IS GLAUM */}
 
-      {/* ATTUNED GLAUMISES */}
       <div className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }}>
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
+          {/* Introductory image for the Glåümises concept */}
           <div className="flex justify-center mb-6">
             <Image
               src="/images/attuned-mobile.webp"
@@ -219,15 +317,19 @@ export default function Page() {
               className="w-full max-w-4xl h-auto"
             />
           </div>
+          {/* Section title - "Glåümises" combines "Glåüm" with "promises/benefits" */}
           <h2 id="benefits" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
             GLÅÜMISES
           </h2>
+          {/* Decorative divider */}
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />
+          {/* Introduction to benefits */}
           <p className="mb-4 text-black">
             Reality isn&apos;t the only thing that improves when you join Glåüm — you do, too! <br />
           <br />
             Here are just a few of the benefits guaranteed to come to you on your path to Glåüm!
           </p>
+          {/* Benefits list displayed as an image for visual consistency */}
           <div className="flex justify-center mt-6">
             <Image
               src="/images/glaumises-mobile.webp"
@@ -239,9 +341,16 @@ export default function Page() {
           </div>
         </div>
       </div>
-      {/* ATTUNED GLAUMISES */}
 
-      {/* IS THIS A JOKE */}
+      {/* ============================================= */}
+      {/* IS THIS A JOKE SECTION */}
+      {/* ============================================= */}
+      {/* 
+        Addresses the satirical nature of Glåüm while explaining its serious intentions.
+        This section is crucial for setting expectations and explaining the community's approach
+        to using humor and satire as tools for accessibility and connection.
+        Features the core values: Compassion, Community, Playfulness.
+      */}
       <div id="attunement" className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }}>
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
           <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
@@ -272,20 +381,24 @@ export default function Page() {
             </div>
           </section>
 
+          {/* Explanation of how values work together */}
           <p className="mb-4 text-center text-black max-w-3xl mx-auto px-4">
             Of these values, compassion is foundational. We strive to promote connection through community and joyful play — but this is only possible when we prioritize the comfort and wellbeing of everyone in our community.
           </p>
 
+          {/* Key principle about inclusive humor */}
           <p className="mb-4 text-left text-black">
             Undoubtedly, jokes are funnier when they&apos;re subtle — but they&apos;re only funny when everyone is in on the joke.
           </p>
           
+          {/* Central paradox of Glåüm */}
           <p className="mb-4 text-center text-black max-w-3xl mx-auto px-4">
             So yes, Glåüm is a joke... <br />
           <br />
             But the punchline is it&apos;s real.
           </p>
           
+          {/* Detailed explanation of satirical approach and its intentions */}
           <p className="mb-4 text-left text-black">
             While the community of Glåüm uses satire, we do so with intention. <br />
           <br />
@@ -309,9 +422,15 @@ export default function Page() {
           </p>
         </div>
       </div>
-      {/* IS THIS A JOKE */}
 
-      {/* A NOTE ON CULTS */}
+      {/* ============================================= */}
+      {/* A NOTE ON CULTS SECTION */}
+      {/* ============================================= */}
+      {/* 
+        Addresses the "cult" label directly, reframing it positively while acknowledging
+        the potential for harm in communities. Explains Glåüm's approach to avoiding
+        the negative patterns seen in other communities.
+      */}
       <div className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }}>
         <div className="max-w-3xl mx-4 sm:mx-auto">
           <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
@@ -353,36 +472,47 @@ export default function Page() {
       </div>
       {/* A NOTE ON CULTS */}
 
-      {/* TENETS OF GLAUM */}
       <div id="tenets" className="pt-48 sm:pt-48 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }}>
         <div className="max-w-4xl mx-4 sm:mx-auto">
           <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
             TENETS OF GLÅÜM
           </h2>
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />
+          {/* Introduction explaining that tenets are living documents */}
           <p className="mb-6 text-left text-black">
             The Tenets of Glåüm are a living, evolving set of shared values; open to discussion, amendment, and new ideas. <br />
           <br />
             They are the guiding principles of the Glåüm Community—also known as The Many Hands of Glåüm. They are a shared philosophy, held together by the playful spirit of Glåüm and the goodwill of its community. If you feel a Tenet could use improvement, we encourage you to share your insights.
           </p>
 
+          {/* ========== Tenet Cards ========== */}
           <div className="space-y-8">
-            {/* Unconditional Positive Regard */}
+            {/* ========== Tenet 1: Unconditional Positive Regard ========== */}
+            {/* 
+              First tenet displayed in ornate frame.
+              Uses absolute positioning to overlay text on the frame image.
+              Responsive text sizing ensures readability on all devices.
+            */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
+                {/* Ornate frame background image */}
                 <Image
                   src="/images/tenent-frame-mobile.png"
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority
+                  priority // High priority as it's above the fold
                   alt="Tenet"
                 />
+                {/* Text overlay with responsive sizing */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
+                  {/* Tenet title with line break on mobile for better readability */}
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 tracking-wide leading-tight max-w-[75%] break-words">
                     UNCONDITIONAL<br className="sm:hidden"/> POSITIVE REGARD
                   </h3>
+                  {/* Decorative divider */}
                   <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
+                  {/* Tenet description with extensive responsive sizing */}
                   <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
                     The Many Hands of Glåüm recognize the inherent goodness in all beings. Actions that seem out of alignment with that goodness are seen as the byproduct of fear, pain, or misunderstanding. In these moments, Glåüm calls upon us to extend compassion, seek understanding, and respond constructively. It is not always easy, but through this practice, we strengthen the connective fabric of the community.
                   </p>
@@ -390,7 +520,7 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Respect and Dignity */}
+            {/* ========== Tenet 2: Respect and Dignity ========== */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
                 <Image
@@ -413,7 +543,7 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Individual Glåüm Ascension */}
+            {/* ========== Tenet 3: Individual Glåüm Ascension ========== */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
                 <Image
@@ -436,7 +566,7 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Inclusivity of Members */}
+            {/* ========== Tenet 4: Inclusivity of Members ========== */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
                 <Image
@@ -459,7 +589,11 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Satire with Intention */}
+            {/* ========== Tenet 5: Satire with Intention ========== */}
+            {/* 
+              This tenet has longer content, so it uses tenet-frame-long class
+              which provides additional height for the longer text.
+            */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-4xl tenet-frame-long">
                 <Image
@@ -475,6 +609,7 @@ export default function Page() {
                     SATIRE WITH<br className="sm:hidden"/> INTENTION
                   </h3>
                   <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
+                  {/* Longer description explaining the nuanced approach to satire */}
                   <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
                     The ManyHands of Glåüm recognize satire as a sacred instrument—capable of softening or sharpening, diminishing or amplifying. Because it shifts the palette of meaning, we approach it with clear intention. When we playfully mirror rituals or aesthetics—such as baptism—we do so not to mock the sacred, but to release the dogma that may bind it. In this release, blessing becomes possible again. <br />
                   <br />
@@ -488,23 +623,32 @@ export default function Page() {
           </div>
         </div>
       </div>
-      {/* TENETS OF GLAUM */}
 
-      {/* POLICIES OF THE MANYHANDS */}
+      {/* ============================================= */}
+      {/* POLICIES OF THE MANYHANDS SECTION */}
+      {/* ============================================= */}
+      {/* 
+        Displays the community policies that guide behavior and decision-making.
+        Similar visual treatment to tenets, using ornate frames for consistency.
+        Policies are communally decided and always open to review.
+      */}
+
       <div id="policies" className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }}>
         <div className="max-w-4xl mx-4 sm:mx-auto">
           <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase" style={{ color: '#634D0B' }}>
             POLICIES OF THE MANYHANDS
           </h2>
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />
+          {/* Introduction explaining the democratic nature of policy-making */}
           <p className="mb-6 text-left text-black">
             We the ManyHands strive to uphold these policies for community guidelines. Our policies are decided upon together, and always up for review, amendment, and addition. We strive to uphold personal, communal, and environmental cohesion and regard within our reasonable limits. <br />
           <br />
             These policies are communally decided by the ManyHands of Glåüm. At any time may a principle be brought up for discussion of review.
           </p>
 
+          {/* ========== Policy Cards ========== */}
           <div className="space-y-6">
-            {/* All feelings are Welcome */}
+            {/* ========== Policy 1: All Feelings Are Welcome ========== */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-5xl policy-frame-wrapper">
                 <Image
@@ -520,6 +664,7 @@ export default function Page() {
                     ALL FEELINGS ARE WELCOME.<br className="sm:hidden"/> ALL BEHAVIOURS ARE NOT
                   </h3>
                   <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
+                  {/* Policy description using dance floor metaphor */}
                   <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-3xl px-2 sm:px-4 break-words">
                     In Glåüm, anger, sadness, confusion, joy, fear, and shame are all part of the music. We do not turn away from these inner movements. <br />
                   <br />
@@ -529,7 +674,11 @@ export default function Page() {
               </div>
             </div>
 
-            {/* The Use of AI */}
+            {/* ========== Policy 2: The Use of AI ========== */}
+            {/* 
+              Longer policy with extensive explanation of AI usage guidelines.
+              Uses policy-frame-long class for additional height to accommodate longer text.
+            */}
             <div className="my-16 px-4 md:my-32">
               <div className="relative mx-auto max-w-5xl policy-frame-long policy-frame-wrapper">
                 <Image
@@ -545,6 +694,7 @@ export default function Page() {
                     THE USE OF AI:<br className="sm:hidden"/> AMPLIFICATION, NOT REPLACEMENT
                   </h3>
                   <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
+                  {/* Comprehensive AI policy covering benefits, boundaries, ethics, and environmental concerns */}
                   <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-3xl px-2 sm:px-4 break-words">
                     The ManyHands of Glåüm recognize AI as a potent instrument for collective creativity. When used with care, it expands participation—offering voices, images, and visions from members who may not have had access to these channels before. In this way, AI can accelerate brainstorming, amplify inspiration, and bring Glåümular projects to completion with greater ease. <br />
                   <br />
@@ -560,8 +710,9 @@ export default function Page() {
           </div>
         </div>
       </div>
-      {/* POLICIES OF THE MANYHANDS */}
-      
+      {/* ========== Legacy Code (Commented Out) ========== */}
+      {/* Background image controls from previous template - no longer used
+          Kept for reference in case background image rotation is needed in future */}
       <div className="text-center">
         {/* <ul className="tm-bg-controls-wrapper">
           <li className="tm-bg-control active" data-id="0"></li>

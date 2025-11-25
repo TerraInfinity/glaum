@@ -1,10 +1,41 @@
+// =============================================
+// Participate Page Component
+// =============================================
+// 
+// Provides information and links for joining the Glåüm community.
+// Features two main entry points:
+// 1. Glåüm WhatsApp Community - Main community hub
+// 2. Children of Venus - Creative projects and funding
+//
+// Uses a full-page background image with semi-transparent content overlay.
+
 import type { Metadata } from 'next'
 
+/**
+ * Page metadata for SEO and browser display.
+ */
 export const metadata: Metadata = {
   title: 'Glåüm Participate',
   description: 'Choose Your Portal to Glåüm - Join the Glåüm community and Children of Venus.',
 }
 
+/**
+ * ParticipatePage Component
+ * 
+ * Provides pathways for joining the Glåüm community.
+ * 
+ * Sections:
+ * - Glåüm WhatsApp Community: Main community hub with link to join
+ * - Children of Venus: Creative projects ministry with join link
+ * - Project Proposal Form: Link to submit creative project ideas
+ * 
+ * Each section includes:
+ * - Description of the community/group
+ * - Call-to-action button with external link
+ * - Clear explanation of purpose and benefits
+ * 
+ * @returns {JSX.Element} Participate page with community join links
+ */
 export default function ParticipatePage() {
   return (
     <>

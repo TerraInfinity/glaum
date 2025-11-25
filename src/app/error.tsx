@@ -1,8 +1,24 @@
+// =============================================
+// Error Boundary Component (Route-Level)
+// =============================================
+// 
+// Next.js error boundary for handling errors in route segments.
+// This component catches errors that occur during rendering, in lifecycle methods,
+// and in constructors of the component tree below it.
+//
+// Note: This is a route-level error boundary. For app-level errors, see global-error.tsx.
+
 'use client'
 
 import { useEffect } from 'react'
 import Link from 'next/link'
 
+/**
+ * Error Component Props
+ * 
+ * @param {Error & { digest?: string }} error - The error object that was thrown
+ * @param {() => void} reset - Function to reset the error boundary and retry rendering
+ */
 export default function Error({
   error,
   reset,
@@ -10,8 +26,14 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  /**
+   * Effect hook to log errors for debugging and monitoring.
+   * 
+   * In production, this could send errors to an error tracking service
+   * like Sentry, LogRocket, or similar.
+   */
   useEffect(() => {
-    // Log the error to an error reporting service
+    // Log the error to console (in production, send to error reporting service)
     console.error('Error:', error)
   }, [error])
 

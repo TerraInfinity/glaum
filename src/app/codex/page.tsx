@@ -1,10 +1,37 @@
+// =============================================
+// Codex Page Component
+// =============================================
+// 
+// Displays the Tenets of Glåüm in a dedicated page format.
+// Provides a focused view of the community's core principles and values.
+// Uses a full-page background image with semi-transparent content overlay.
+
 import type { Metadata } from 'next'
 
+/**
+ * Page metadata for SEO and browser display.
+ * Sets the page title and description for search engines and social sharing.
+ */
 export const metadata: Metadata = {
   title: 'Glåüm Codex',
   description: 'The Tenets of Glåüm - A living, evolving set of shared values.',
 }
 
+/**
+ * CodexPage Component
+ * 
+ * Displays the Tenets of Glåüm in a dedicated page format.
+ * Features:
+ * - Full-page background image (codex.png) with fixed attachment
+ * - Semi-transparent white overlay for content readability
+ * - Individual tenet cards with subtle borders
+ * - Introduction explaining the living nature of the tenets
+ * 
+ * The page uses a different layout from the homepage to provide
+ * a focused reading experience for the tenets.
+ * 
+ * @returns {JSX.Element} Codex page with tenets display
+ */
 export default function CodexPage() {
   return (
     <>

@@ -1,7 +1,24 @@
+// =============================================
+// Global Error Boundary Component
+// =============================================
+// 
+// Next.js global error boundary for handling errors in the root layout.
+// This is the top-level error handler that catches errors that occur
+// in the root layout.tsx file itself.
+//
+// Unlike the route-level error.tsx, this component must include
+// <html> and <body> tags since it replaces the entire page.
+
 'use client'
 
 import { useEffect } from 'react'
 
+/**
+ * GlobalError Component Props
+ * 
+ * @param {Error & { digest?: string }} error - The error object that was thrown
+ * @param {() => void} reset - Function to reset the error boundary and retry rendering
+ */
 export default function GlobalError({
   error,
   reset,
@@ -9,8 +26,15 @@ export default function GlobalError({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  /**
+   * Effect hook to log global errors for debugging and monitoring.
+   * 
+   * Global errors are more critical than route-level errors as they
+   * indicate issues with the root layout or critical infrastructure.
+   * Should be sent to error tracking service immediately.
+   */
   useEffect(() => {
-    // Log the error to an error reporting service
+    // Log the error to console (in production, send to error reporting service)
     console.error('Global Error:', error)
   }, [error])
 
