@@ -1,30 +1,3 @@
-// =============================================
-// Vercel Deployment Configuration
-// =============================================
-// 
-// Configuration file for Vercel deployment settings.
-// Defines URL rewriting rules and other deployment-specific options.
-//
-// This file is used when deploying to Vercel hosting platform.
-
 {
-  /**
-   * URL Rewrites
-   * 
-   * Rewrites all routes to the root path, enabling client-side routing.
-   * 
-   * This is a catch-all rewrite that sends all requests to "/" (the Next.js app),
-   * allowing Next.js's App Router to handle routing client-side.
-   * 
-   * Why this is needed:
-   * - When users navigate directly to a route (e.g., /codex), Vercel would
-   *   normally return a 404 if that file doesn't exist
-   * - This rewrite ensures all routes are handled by Next.js, which can then
-   *   render the appropriate page component
-   * - Essential for Single Page Application (SPA) behavior with client-side routing
-   * 
-   * Pattern: "/(.*)" matches all paths
-   * Destination: "/" sends everything to the Next.js app root
-   */
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
