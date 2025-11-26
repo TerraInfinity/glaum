@@ -48,6 +48,30 @@
 @utility text-orange           { color: #f97316; }         /* Orange text */
 @utility bg-orange             { background-color: #f97316; } /* Orange background */
 
+/* ==================== BRAND COLOR UTILITIES ==================== */
+/* 
+ * Brand color utilities extracted from inline styles for better maintainability.
+ * These colors are used consistently throughout the site.
+ */
+
+/* Brand Purple Background */
+@utility bg-brand-purple { background-color: #D239F8; } /* Glåüm brand purple */
+@utility bg-brand-purple-transparent { background-color: rgba(219, 97, 249, 0.5); } /* Semi-transparent purple for header */
+
+/* Heading Colors */
+@utility text-heading-brown { color: #634D0B; } /* Dark brown for main headings */
+@utility text-heading-gold { color: #B8860B; } /* Gold for codex headings */
+@utility text-heading-dark-brown { color: #654321; } /* Dark brown for participate headings */
+@utility text-heading-bronze { color: #8B6914; } /* Bronze for structure headings */
+
+/* Text Colors */
+@utility text-logo-lemon { color: #FFFACD; } /* Lemon chiffon for logo */
+@utility text-soundcloud-gray { color: #cccccc; } /* Gray for SoundCloud attribution */
+
+/* Font Families */
+@utility font-open-sans { font-family: 'Open Sans', sans-serif; }
+@utility font-tokyo-dreams { font-family: 'tokyo_dreamsregular', sans-serif; }
+
 /* ==================== BASE STYLES ==================== */
 
 /**

@@ -106,23 +106,8 @@ export default function Header() {
         Semi-transparent purple background matches brand colors.
       */}
       <header
-        className="w-full z-[9999] mx-auto l-0 r-0 fixed top-0 left-0 right-0 header transition-all duration-300 backdrop-blur-md"
+        className="w-full z-[9999] mx-auto l-0 r-0 fixed top-0 left-0 right-0 header transition-all duration-300 backdrop-blur-md header-fixed bg-brand-purple-transparent"
         role="banner"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 9999, // High z-index to stay above all content
-          backgroundColor: 'rgba(219, 97, 249, 0.5)', // Semi-transparent purple (DB61F9 with 50% opacity)
-          margin: 0,
-          marginTop: 0,
-          marginBottom: 0,
-          padding: 0,
-          paddingTop: 0,
-          paddingBottom: 0,
-          border: 'none',
-        }}
       >
         {/* ========== Logo ========== */}
         {/* 
@@ -131,11 +116,8 @@ export default function Header() {
           Closes mobile menu when clicked for better UX.
         */}
         <Link
-          className="font-tokyo text-3xl font-normal pr-4 absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-10"
+          className="font-tokyo text-3xl font-normal pr-4 absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-10 text-logo-lemon"
           href="/"
-          style={{
-            color: '#FFFACD', // Lemon chiffon color for contrast against purple background
-          }}
           onClick={closeMobileMenu}
           aria-label="Glåüm - Return to homepage"
         >
@@ -158,72 +140,37 @@ export default function Header() {
                 - Group class enables child hover effects
                 - Whitespace-nowrap prevents text wrapping */}
             <Link
-              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap"
+              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap nav-link"
               href={pathname === '/' ? '#testimonials' : '/#testimonials'}
-              style={{
-                fontFamily: "'Open Sans', sans-serif",
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em', // Wide letter spacing for readability
-                color: 'white',
-              }}
             >
               Testimonials
               {/* Animated underline that expands on hover */}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
-              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap"
+              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap nav-link"
               href={pathname === '/' ? '#attunement' : '/#attunement'}
-              style={{
-                fontFamily: "'Open Sans', sans-serif",
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                color: 'white',
-              }}
             >
               Attunement
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
-              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap"
+              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap nav-link"
               href={pathname === '/' ? '#benefits' : '/#benefits'}
-              style={{
-                fontFamily: "'Open Sans', sans-serif",
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                color: 'white',
-              }}
             >
               Benefits
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
-              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap"
+              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap nav-link"
               href={pathname === '/' ? '#tenets' : '/#tenets'}
-              style={{
-                fontFamily: "'Open Sans', sans-serif",
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                color: 'white',
-              }}
             >
               Tenets
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
-              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap"
+              className="text-center text-lg sm:text-xl lg:text-2xl leading-tight opacity-90 hover:opacity-100 transition relative group whitespace-nowrap nav-link"
               href={pathname === '/' ? '#policies' : '/#policies'}
-              style={{
-                fontFamily: "'Open Sans', sans-serif",
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                color: 'white',
-              }}
             >
               Policies
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
@@ -286,62 +233,37 @@ export default function Header() {
       >
         <nav className="flex flex-col items-center justify-start pb-6 space-y-4" aria-label="Mobile navigation">
           <Link
-            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1"
+            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1 font-open-sans"
             href={pathname === '/' ? '#testimonials' : '/#testimonials'}
             onClick={closeMobileMenu}
-            style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontWeight: 400,
-              letterSpacing: '0.15em',
-            }}
           >
             Testimonials
           </Link>
           <Link
-            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1"
+            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1 font-open-sans"
             href={pathname === '/' ? '#attunement' : '/#attunement'}
             onClick={closeMobileMenu}
-            style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontWeight: 400,
-              letterSpacing: '0.15em',
-            }}
           >
             Attunement
           </Link>
           <Link
-            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1"
+            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1 font-open-sans"
             href={pathname === '/' ? '#benefits' : '/#benefits'}
             onClick={closeMobileMenu}
-            style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontWeight: 400,
-              letterSpacing: '0.15em',
-            }}
           >
             Benefits
           </Link>
           <Link
-            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1"
+            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1 font-open-sans"
             href={pathname === '/' ? '#tenets' : '/#tenets'}
             onClick={closeMobileMenu}
-            style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontWeight: 400,
-              letterSpacing: '0.15em',
-            }}
           >
             Tenets
           </Link>
           <Link
-            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1"
+            className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1 font-open-sans"
             href={pathname === '/' ? '#policies' : '/#policies'}
             onClick={closeMobileMenu}
-            style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontWeight: 400,
-              letterSpacing: '0.15em',
-            }}
           >
             Policies
           </Link>

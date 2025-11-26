@@ -86,7 +86,7 @@ export default function CodexPage() {
       }}>
         <div className="pt-48 sm:pt-32 pb-20 xs:pb-32 mx-auto bg-white bg-opacity-10">
           <div className="max-w-4xl mx-4 sm:mx-auto">
-            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ color: '#B8860B' }}>
+            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug text-heading-gold">
               The Tenets of Glåüm
             </h1>
             
@@ -114,7 +114,7 @@ export default function CodexPage() {
               </div>
               
               <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                <h3 className="text-xl font-semibold mb-4" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                <h3 className="text-xl font-semibold mb-4 font-tokyo-dreams">
                   Respect and Dignity for All
                 </h3>
                 <p>
@@ -123,7 +123,7 @@ export default function CodexPage() {
               </div>
               
               <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                <h3 className="text-xl font-semibold mb-4" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                <h3 className="text-xl font-semibold mb-4 font-tokyo-dreams">
                   Individual Glåüm Ascension
                 </h3>
                 <p>
@@ -132,7 +132,7 @@ export default function CodexPage() {
               </div>
               
               <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                <h3 className="text-xl font-semibold mb-4" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                <h3 className="text-xl font-semibold mb-4 font-tokyo-dreams">
                   Inclusivity of Members
                 </h3>
                 <p>
@@ -141,7 +141,7 @@ export default function CodexPage() {
               </div>
               
               <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                <h3 className="text-xl font-semibold mb-4" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                <h3 className="text-xl font-semibold mb-4 font-tokyo-dreams">
                   All feelings are welcome. All Behaviours are Not.
                 </h3>
                 <p>

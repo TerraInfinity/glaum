@@ -42,8 +42,8 @@ export default function Footer() {
           ></iframe>
           
           {/* SoundCloud attribution - required by SoundCloud terms of service */}
-          <div className="text-center" style={{ fontSize: '10px', color: '#cccccc', lineBreak: 'anywhere', wordBreak: 'normal', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', fontFamily: 'Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif', fontWeight: 100 }}>
-            <a href="https://soundcloud.com/azeirf" title="Azeirf" target="_blank" rel="noopener noreferrer" style={{ color: '#cccccc', textDecoration: 'none' }}>Azeirf  -</a> · <a href="https://soundcloud.com/azeirf/camaron-wav" title="Camarón.... 🦐" target="_blank" rel="noopener noreferrer" style={{ color: '#cccccc', textDecoration: 'none' }}>Camarón.... 🦐</a>
+          <div className="text-center soundcloud-attribution">
+            <a href="https://soundcloud.com/azeirf" title="Azeirf" target="_blank" rel="noopener noreferrer" className="soundcloud-link">Azeirf  -</a> · <a href="https://soundcloud.com/azeirf/camaron-wav" title="Camarón.... 🦐" target="_blank" rel="noopener noreferrer" className="soundcloud-link">Camarón.... 🦐</a>
           </div>
         </div>
         

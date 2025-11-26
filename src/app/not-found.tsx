@@ -53,7 +53,7 @@ export const metadata: Metadata = {
  */
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4" style={{ paddingTop: '100px' }}>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 error-page-container">
       <div className="text-center max-w-2xl mx-auto">
         <h1 
           className="text-6xl md:text-8xl font-bold mb-4"

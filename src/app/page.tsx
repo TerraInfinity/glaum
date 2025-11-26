@@ -168,19 +168,7 @@ export default function Page() {
         Padding-top accounts for fixed header height (80px) plus spacing.
         Background color matches the site's purple theme (#D239F8).
       */}
-      <div 
-        className="hero-wrapper"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          paddingTop: 'calc(80px + 1rem)', // Header height (80px) + spacing (1rem)
-          paddingBottom: '1rem',
-          paddingLeft: '0.5rem',
-          paddingRight: '0.5rem',
-          backgroundColor: '#D239F8', // Glåüm brand purple
-        }}
-      >
+      <div className="hero-wrapper hero-container">
         {/* Hero Card - Dimensions calculated dynamically by useEffect hook above */}
         <div 
           id="hero-card"
@@ -216,7 +204,7 @@ export default function Page() {
           <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-lg sm:text-4xl mx-auto main-headline opacity-70 font-normal leading-snug">
             Glåüm Philosophy
           </h2>
-          <h4 className="mb-4 xs:w-10/12 lg:w-auto text-lg sm:text-2xl mx-auto main-headline opacity-70 font-normal leading-snug" style={{ fontFamily: "'Open Sans'" }}>
+          <h4 className="mb-4 xs:w-10/12 lg:w-auto text-lg sm:text-2xl mx-auto main-headline opacity-70 font-normal leading-snug font-open-sans">
             What is Glåüm Consciousness
           </h4>
 
@@ -237,9 +225,9 @@ export default function Page() {
         Uses warm, reassuring language to address potential skepticism or overwhelm.
         Background uses semi-transparent white overlay for readability over purple background.
       */}
-      <section id="about" className="pt-16 sm:pt-16 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-20 w-full about-section" style={{ backgroundImage: 'none', backgroundColor: '#D239F8' }} aria-labelledby="about-heading">
+      <section id="about" className="pt-16 sm:pt-16 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-20 w-full about-section section-bg-purple" aria-labelledby="about-heading">
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
-          <h2 id="about-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase" style={{ color: '#634D0B' }}>
+          <h2 id="about-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase text-heading-brown">
             THAT&apos;S RIGHT. IT&apos;S FINALLY TIME.
           </h2>
           <p className="mb-4 text-black">
@@ -255,9 +243,9 @@ export default function Page() {
       </section>
       {/* INTRO SECTION */}
 
-      <section id="testimonials" className="pt-8 pb-8 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }} aria-labelledby="testimonials-heading">
+      <section id="testimonials" className="pt-8 pb-8 mx-auto bg-white bg-opacity-10 w-full section-bg-purple-opacity" aria-labelledby="testimonials-heading">
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
-          <h2 id="testimonials-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase" style={{ color: '#634D0B' }}>
+          <h2 id="testimonials-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase text-heading-brown">
             GLÅÜM TESTIMONIALS
           </h2>
           
@@ -284,9 +272,9 @@ export default function Page() {
         Uses poetic, philosophical language to describe the concept of attunement and world Glåümination.
         This section establishes the foundational philosophy of the community.
       */}
-      <section id="what-is-glaum" className="pt-8 sm:pt-8 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full what-is-glaum-section" style={{ backgroundImage: 'none', backgroundColor: '#D239F8' }} aria-labelledby="what-is-glaum-heading">
+      <section id="what-is-glaum" className="pt-8 sm:pt-8 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full what-is-glaum-section section-bg-purple" aria-labelledby="what-is-glaum-heading">
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
-          <h2 id="what-is-glaum-heading" className="font-tokyo text-5xl lg:text-7xl font-bold mb-8 text-center uppercase" style={{ color: '#634D0B' }}>
+          <h2 id="what-is-glaum-heading" className="font-tokyo text-5xl lg:text-7xl font-bold mb-8 text-center uppercase text-heading-brown">
             WHAT IS GLÅÜM? <br /> °••▲••°
           </h2>
 
@@ -359,9 +347,9 @@ export default function Page() {
         to using humor and satire as tools for accessibility and connection.
         Features the core values: Compassion, Community, Playfulness.
       */}
-      <section id="attunement" className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }} aria-labelledby="attunement-heading">
+      <section id="attunement" className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full section-bg-purple-opacity" aria-labelledby="attunement-heading">
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
-          <h2 id="attunement-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
+          <h2 id="attunement-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center text-heading-brown">
             ... IS THIS A JOKE?
           </h2>
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />
@@ -440,9 +428,9 @@ export default function Page() {
         the potential for harm in communities. Explains Glåüm's approach to avoiding
         the negative patterns seen in other communities.
       */}
-      <section className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }} aria-labelledby="note-on-cults-heading">
+      <section className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full section-bg-purple-opacity" aria-labelledby="note-on-cults-heading">
         <div className="max-w-3xl mx-4 sm:mx-auto">
-          <h2 id="note-on-cults-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
+          <h2 id="note-on-cults-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center text-heading-brown">
             A NOTE ON CULTS
           </h2>
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />
@@ -481,9 +469,9 @@ export default function Page() {
       </section>
       {/* A NOTE ON CULTS */}
 
-      <section id="tenets" className="pt-48 sm:pt-48 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }} aria-labelledby="tenets-heading">
+      <section id="tenets" className="pt-48 sm:pt-48 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full section-bg-purple-opacity" aria-labelledby="tenets-heading">
         <div className="max-w-4xl mx-4 sm:mx-auto">
-          <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
+          <h2 className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center text-heading-brown">
             TENETS OF GLÅÜM
           </h2>
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />
@@ -575,9 +563,9 @@ export default function Page() {
         Policies are communally decided and always open to review.
       */}
 
-      <section id="policies" className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }} aria-labelledby="policies-heading">
+      <section id="policies" className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full section-bg-purple-opacity" aria-labelledby="policies-heading">
         <div className="max-w-4xl mx-4 sm:mx-auto">
-          <h2 id="policies-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase" style={{ color: '#634D0B' }}>
+          <h2 id="policies-heading" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center uppercase text-heading-brown">
             POLICIES OF THE MANYHANDS
           </h2>
           <hr className="border-black border-opacity-30 my-6 max-w-2xl mx-auto" />

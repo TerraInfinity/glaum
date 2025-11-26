@@ -88,7 +88,7 @@ export default function StructurePage() {
       }}>
         <div className="pt-48 sm:pt-32 pb-20 xs:pb-32 mx-auto bg-white bg-opacity-30">
           <div className="max-w-4xl mx-4 sm:mx-auto">
-            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ color: '#8B6914' }}>
+            <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug text-heading-bronze">
               Mothers of Glåüm
             </h1>
             
@@ -141,7 +141,7 @@ export default function StructurePage() {
             <br />
                       
             <div className="mb-8">
-              <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug" style={{ color: '#8B6914' }}>
+              <h2 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug text-heading-bronze">
                 Council of Attunement
               </h2>
               <h3 className="text-xl font-semibold mb-4 text-center">
@@ -162,7 +162,7 @@ export default function StructurePage() {
                 </div>
                 
                 <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                  <h4 className="text-lg font-semibold mb-3" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                  <h4 className="text-lg font-semibold mb-3 font-tokyo-dreams">
                     2. Attunement Comes First.
                   </h4>
                   <p>
@@ -171,7 +171,7 @@ export default function StructurePage() {
                 </div>
                 
                 <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                  <h4 className="text-lg font-semibold mb-3" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                  <h4 className="text-lg font-semibold mb-3 font-tokyo-dreams">
                     3. Consent Is the Compass.
                   </h4>
                   <p>
@@ -180,7 +180,7 @@ export default function StructurePage() {
                 </div>
                 
                 <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                  <h4 className="text-lg font-semibold mb-3" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                  <h4 className="text-lg font-semibold mb-3 font-tokyo-dreams">
                     4. Redirect, Don&apos;t Reject.
                   </h4>
                   <p>
@@ -189,7 +189,7 @@ export default function StructurePage() {
                 </div>
                 
                 <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                  <h4 className="text-lg font-semibold mb-3" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                  <h4 className="text-lg font-semibold mb-3 font-tokyo-dreams">
                     5. Reentry Is Possible—With Intention.
                   </h4>
                   <p>
@@ -198,7 +198,7 @@ export default function StructurePage() {
                 </div>
                 
                 <div className="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
-                  <h4 className="text-lg font-semibold mb-3" style={{ fontFamily: "'tokyo_dreamsregular'" }}>
+                  <h4 className="text-lg font-semibold mb-3 font-tokyo-dreams">
                     6. We Are Not Therapists, But We Are Allies.
                   </h4>
                   <p>
