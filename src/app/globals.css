@@ -357,6 +357,21 @@ blockquote {
 
 /* ==================== COMPONENT STYLES ==================== */
 
+/* ========== SECTION BACKGROUNDS ========== */
+/* 
+ * Section background utility classes for consistent purple backgrounds.
+ * These replace inline styles for better maintainability.
+ */
+
+.section-bg-purple {
+  background-color: #D239F8;
+  background-image: none;
+}
+
+.section-bg-purple-opacity {
+  background-color: #D239F8;
+}
+
 /* ========== BUTTON COMPONENTS ========== */
 
 /**

@@ -299,7 +299,7 @@ export default function Page() {
       </section>
       {/* WHAT IS GLAUM */}
 
-      <section className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full" style={{ backgroundColor: '#D239F8' }} aria-labelledby="benefits">
+      <section className="pt-12 sm:pt-12 pb-12 xs:pb-16 mx-auto bg-white bg-opacity-10 w-full section-bg-purple-opacity" aria-labelledby="benefits">
         <div className="max-w-3xl mx-4 sm:mx-auto text-center">
           {/* Introductory image for the Glåümises concept */}
           <div className="flex justify-center mb-6">
