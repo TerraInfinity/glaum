@@ -11,12 +11,51 @@
 
 import type { Metadata } from 'next'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+
 /**
  * Page metadata for SEO and browser display.
  */
 export const metadata: Metadata = {
   title: 'Glåüm Participate',
-  description: 'Choose Your Portal to Glåüm - Join the Glåüm community and Children of Venus.',
+  description: 'Choose Your Portal to Glåüm - Join the Glåüm WhatsApp community and Children of Venus. Connect with the Manyhands and participate in creative projects.',
+  keywords: [
+    'Join Glåüm',
+    'Glåüm community',
+    'Children of Venus',
+    'Glåüm WhatsApp',
+    'participate in Glåüm',
+    'Manyhands',
+  ],
+  openGraph: {
+    title: 'Glåüm Participate | Join the Community',
+    description: 'Choose Your Portal to Glåüm - Join the Glåüm WhatsApp community and Children of Venus. Connect with the Manyhands and participate in creative projects.',
+    url: `${siteUrl}/participate`,
+    siteName: 'Glåüm',
+    images: [
+      {
+        url: '/img/participate.png',
+        width: 1200,
+        height: 630,
+        alt: 'Glåüm Participate - Join the Community',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Glåüm Participate | Join the Community',
+    description: 'Choose Your Portal to Glåüm - Join the Glåüm WhatsApp community and Children of Venus.',
+    images: ['/img/participate.png'],
+  },
+  alternates: {
+    canonical: `${siteUrl}/participate`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 /**

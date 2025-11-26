@@ -9,19 +9,104 @@ import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import StructuredData, { organizationSchema, websiteSchema } from '@/components/StructuredData'
 import './globals.css'
 
+// Site configuration
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+const siteName = 'Glåüm'
+const defaultTitle = 'Glåüm: Spiritual Unity & Satire'
+const defaultDescription = 'More than love. Join the Manyhands - a community of spiritual unity, compassion, connection, and playful satire. Experience Glåüm.'
+
 /**
- * Metadata configuration for SEO and browser display.
- * Sets the page title and description that appear in browser tabs and search results.
+ * Comprehensive metadata configuration for SEO, OpenGraph, Twitter Cards, and social sharing.
+ * Sets the page title, description, and social media previews that appear in browser tabs,
+ * search results, and when shared on social platforms.
  */
 export const metadata: Metadata = {
-  title: 'Glåüm Home',
-  description: 'Glåüm - More than love.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: defaultTitle,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  keywords: [
+    'Glåüm',
+    'spiritual unity',
+    'spiritual community',
+    'Manyhands',
+    'compassion',
+    'satire',
+    'spiritual growth',
+    'community',
+    'attunement',
+    'kundalini',
+    'spiritual practice',
+  ],
+  authors: [{ name: 'Glåüm', url: siteUrl }],
+  creator: 'Glåüm',
+  publisher: 'Glåüm',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: '/img/favicon.ico', sizes: 'any' },
     ],
+    apple: [
+      { url: '/img/favicon.ico', sizes: 'any' },
+    ],
+  },
+  manifest: '/manifest.json',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteUrl,
+    siteName: siteName,
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [
+      {
+        url: '/img/optimized/cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Glåüm - Spiritual Unity & Satire',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ['/img/optimized/cover.jpg'],
+    creator: '@glaum', // Update with actual Twitter handle if available
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  other: {
+    // Additional meta tags can be added here
+    // Preconnect links are handled via external stylesheet loading
+  },
+  verification: {
+    // Add verification codes when available
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+    // yahoo: 'your-yahoo-verification-code',
   },
 }
 
@@ -50,29 +135,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="seamless-gradient-wrapper">
-      <head>
-        {/* X-UA-Compatible meta tag for IE/Edge compatibility */}
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        
-        {/* ========== Performance Optimizations: Resource Hints ========== */}
-        {/* Preconnect to external domains to establish early connections and reduce DNS lookup time.
-            This improves perceived performance by starting connections before resources are needed. */}
-        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* ========== Typography ========== */}
-        {/* Open Sans font family with multiple weights for typography hierarchy */}
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans:200,400,500,600"
-          rel="stylesheet"
-        />
-        
-        {/* ========== Favicon ========== */}
-        {/* Standard Next.js 14 favicon handling */}
-        <link rel="icon" href="/img/favicon.ico" sizes="any" />
-      </head>
       <body className="text-black leading-loose" style={{ fontFamily: "'Open Sans'", backgroundColor: 'transparent', backgroundImage: 'none' }}>
+        {/* ========== Structured Data (JSON-LD) ========== */}
+        {/* Provides structured data for search engines to better understand the website */}
+        {/* JSON-LD scripts can be placed in the body and will be moved to head by Next.js */}
+        <StructuredData schemas={[organizationSchema, websiteSchema]} />
+        
         {/* ========== Global Components ========== */}
         {/* Header component with navigation - appears on all pages */}
         <Header />

@@ -8,13 +8,52 @@
 
 import type { Metadata } from 'next'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+
 /**
  * Page metadata for SEO and browser display.
  * Sets the page title and description for search engines and social sharing.
  */
 export const metadata: Metadata = {
   title: 'Glåüm Codex',
-  description: 'The Tenets of Glåüm - A living, evolving set of shared values.',
+  description: 'The Tenets of Glåüm - A living, evolving set of shared values. Explore the guiding principles of the Glåüm Community, including Unconditional Positive Regard, Respect and Dignity for All, and Individual Glåüm Ascension.',
+  keywords: [
+    'Glåüm Codex',
+    'Tenets of Glåüm',
+    'Glåüm principles',
+    'spiritual values',
+    'community guidelines',
+    'Manyhands',
+  ],
+  openGraph: {
+    title: 'Glåüm Codex | The Tenets of Glåüm',
+    description: 'The Tenets of Glåüm - A living, evolving set of shared values. Explore the guiding principles of the Glåüm Community.',
+    url: `${siteUrl}/codex`,
+    siteName: 'Glåüm',
+    images: [
+      {
+        url: '/img/codex.png',
+        width: 1200,
+        height: 630,
+        alt: 'Glåüm Codex - The Tenets of Glåüm',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Glåüm Codex | The Tenets of Glåüm',
+    description: 'The Tenets of Glåüm - A living, evolving set of shared values. Explore the guiding principles of the Glåüm Community.',
+    images: ['/img/codex.png'],
+  },
+  alternates: {
+    canonical: `${siteUrl}/codex`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 /**
