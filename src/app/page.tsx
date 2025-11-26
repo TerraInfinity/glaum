@@ -6,7 +6,7 @@
 
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 
@@ -28,6 +28,9 @@ import Image from 'next/image'
  * @returns {JSX.Element} The complete homepage with all sections
  */
 export default function Page() {
+  // ========== Loading State ==========
+  const [isHeroImageLoading, setIsHeroImageLoading] = useState(true)
+
   /**
    * Effect hook for hero image dynamic sizing and section background management.
    * 
@@ -98,6 +101,9 @@ export default function Page() {
         // Set container dimensions to match calculated values
         cardEl.style.width = `${containerWidth}px`
         cardEl.style.height = `${calculatedHeight}px`
+        
+        // Hide loading skeleton once image is loaded and dimensions are set
+        setIsHeroImageLoading(false)
       }
       img.onerror = function() {
         // Fallback: set default dimensions if image fails to load
@@ -106,6 +112,8 @@ export default function Page() {
         cardEl.style.width = `${maxWidth}px`
         cardEl.style.height = `${maxWidth * 0.75 * 0.85}px` // Default 4:3 aspect ratio, slightly reduced
         console.warn('Failed to load hero image:', imageSrc)
+        // Hide loading skeleton even on error
+        setIsHeroImageLoading(false)
       }
       img.src = imageSrc
     }
@@ -174,11 +182,20 @@ export default function Page() {
         {/* Hero Card - Dimensions calculated dynamically by useEffect hook above */}
         <div 
           id="hero-card"
-          className="hero-card"
+          className={`hero-card relative ${isHeroImageLoading ? 'hero-card-loading' : ''}`}
           style={{
             backgroundImage: "url('/images/hero-family-mobile.webp')",
           }}
         >
+          {/* Loading Skeleton - Shows while hero image is loading */}
+          {isHeroImageLoading && (
+            <div 
+              className="hero-card-skeleton"
+              aria-label="Loading hero image"
+              role="status"
+              aria-live="polite"
+            />
+          )}
         </div>
       </div>
 

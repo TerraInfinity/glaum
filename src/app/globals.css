@@ -1022,6 +1022,41 @@ img {
 }
 
 /**
+ * Hero Card Loading Skeleton
+ * 
+ * Displays a subtle loading animation while the hero image loads.
+ * Uses a shimmer effect with brand colors for visual feedback.
+ */
+.hero-card-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(210, 57, 248, 0.3) 0%,
+    rgba(210, 57, 248, 0.5) 50%,
+    rgba(210, 57, 248, 0.3) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Fade out skeleton when image loads */
+.hero-card:not(.hero-card-loading) .hero-card-skeleton {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-card-skeleton {
+    animation: none;
+    background: rgba(210, 57, 248, 0.3);
+  }
+}
+
+/**
  * Responsive Adjustments for Mobile
  * 
  * Mobile-specific styles that override desktop defaults for better mobile UX.
