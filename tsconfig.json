@@ -10,6 +10,11 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    // Additional strict checks (industry best practices)
+    "noUnusedLocals": true,        // Warns about unused local variables
+    "noUnusedParameters": true,    // Warns about unused function parameters
+    "noImplicitReturns": true,     // Ensures all code paths return a value
+    "noFallthroughCasesInSwitch": true, // Prevents fallthrough in switch statements
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",

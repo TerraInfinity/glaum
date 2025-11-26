@@ -28,9 +28,9 @@ import { usePathname } from 'next/navigation'
  */
 export default function Header() {
   // ========== State Management ==========
-  const [isScrolled, setIsScrolled] = useState(false) // Tracks if user has scrolled (for potential future styling)
+  const [_isScrolled, setIsScrolled] = useState(false) // Tracks if user has scrolled (for potential future styling)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false) // Controls mobile menu visibility
-  const [isMobile, setIsMobile] = useState(false) // Tracks if viewport is mobile size
+  const [_isMobile, setIsMobile] = useState(false) // Tracks if viewport is mobile size (setter used in resize handler)
   const pathname = usePathname() // Current route path for conditional link behavior
 
   /**

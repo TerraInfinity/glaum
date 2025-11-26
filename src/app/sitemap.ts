@@ -11,7 +11,6 @@ import { MetadataRoute } from 'next'
 
 // Always use primary domain for sitemap (SEO best practice)
 const PRIMARY_DOMAIN = 'https://glaum.ca'
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || PRIMARY_DOMAIN
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
