@@ -12,6 +12,7 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
+import { trackError } from '@/lib/error-tracking'
 
 /**
  * Error Component Props
@@ -27,14 +28,18 @@ export default function Error({
   reset: () => void
 }) {
   /**
-   * Effect hook to log errors for debugging and monitoring.
+   * Effect hook to track errors for debugging and monitoring.
    * 
-   * In production, this could send errors to an error tracking service
-   * like Sentry, LogRocket, or similar.
+   * Errors are automatically tracked by Vercel Analytics when @vercel/analytics
+   * is installed. Additional tracking services can be added via trackError utility.
    */
   useEffect(() => {
-    // Log the error to console (in production, send to error reporting service)
-    console.error('Error:', error)
+    // Track error with context
+    trackError(error, {
+      component: 'ErrorBoundary',
+      digest: error.digest,
+      pathname: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
+    })
   }, [error])
 
   return (

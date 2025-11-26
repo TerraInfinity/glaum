@@ -12,6 +12,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { trackError } from '@/lib/error-tracking'
 
 /**
  * GlobalError Component Props
@@ -27,15 +28,20 @@ export default function GlobalError({
   reset: () => void
 }) {
   /**
-   * Effect hook to log global errors for debugging and monitoring.
+   * Effect hook to track global errors for debugging and monitoring.
    * 
    * Global errors are more critical than route-level errors as they
    * indicate issues with the root layout or critical infrastructure.
-   * Should be sent to error tracking service immediately.
+   * Errors are automatically tracked by Vercel Analytics.
    */
   useEffect(() => {
-    // Log the error to console (in production, send to error reporting service)
-    console.error('Global Error:', error)
+    // Track critical global error with high priority context
+    trackError(error, {
+      component: 'GlobalErrorBoundary',
+      digest: error.digest,
+      severity: 'critical',
+      pathname: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
+    })
   }, [error])
 
   return (

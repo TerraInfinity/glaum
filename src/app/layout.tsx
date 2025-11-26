@@ -7,6 +7,8 @@
 
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import StructuredData, { organizationSchema, websiteSchema } from '@/components/StructuredData'
@@ -155,6 +157,13 @@ export default function RootLayout({
         {/* Adobe Typekit font loading - loaded after interactive to avoid blocking initial render.
             strategy="afterInteractive" ensures the page is interactive before this script runs. */}
         <Script src="https://use.typekit.net/avw1eiz.js" strategy="afterInteractive" />
+        
+        {/* ========== Analytics & Monitoring ========== */}
+        {/* Vercel Analytics - Automatically tracks page views, errors, and web vitals */}
+        <Analytics />
+        
+        {/* Vercel Speed Insights - Tracks Core Web Vitals and performance metrics */}
+        <SpeedInsights />
       </body>
     </html>
   )
