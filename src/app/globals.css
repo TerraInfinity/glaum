@@ -54,14 +54,15 @@
  * Body Background
  * 
  * Sets the base background color and image for the entire site.
- * Background image is loaded from external CDN and covers the full viewport.
- * The purple background (#D239F8) matches the Glåüm brand color.
+ * Background image is loaded from local public directory and covers the full viewport.
+ * The purple background (#D239F8) matches the Glåüm brand color and serves as a fallback.
  */
 body {
   background: #D239F8; /* Glåüm brand purple - fallback if image fails to load */
-  background-image: url('https://glaum.ca/img/homepage.png'); /* Full-page background texture */
+  background-image: url('/img/homepage.png'); /* Full-page background texture - local image */
   background-size: cover; /* Cover entire viewport */
   background-repeat: no-repeat; /* Single image, no tiling */
+  background-position: center center; /* Center the background image */
   font-family: "Open Sans"; /* Primary body font */
   letter-spacing: 0.025em; /* Slight letter spacing for readability */
   color: white; /* Default text color for contrast against purple background */
