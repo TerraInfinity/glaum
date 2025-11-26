@@ -7,6 +7,33 @@
 // Uses Glåüm brand styling with Tokyo Dreams font for consistency.
 
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+
+/**
+ * Metadata for 404 page
+ */
+export const metadata: Metadata = {
+  title: 'Page Not Found | Glåüm',
+  description: 'The page you\'re looking for doesn\'t exist. Return to Glåüm homepage to explore spiritual unity, compassion, and playful satire.',
+  robots: {
+    index: false, // Don't index 404 pages
+    follow: false,
+  },
+  openGraph: {
+    title: 'Page Not Found | Glåüm',
+    description: 'The page you\'re looking for doesn\'t exist. Return to Glåüm homepage.',
+    url: `${siteUrl}/404`,
+    siteName: 'Glåüm',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Page Not Found | Glåüm',
+    description: 'The page you\'re looking for doesn\'t exist.',
+  },
+}
 
 /**
  * NotFound Component
