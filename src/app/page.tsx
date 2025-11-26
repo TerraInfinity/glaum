@@ -8,6 +8,8 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import TenetFrame from '@/components/TenetFrame'
+import PolicyFrame from '@/components/PolicyFrame'
 
 
 /**
@@ -495,138 +497,71 @@ export default function Page() {
           {/* ========== Tenet Cards ========== */}
           <div className="space-y-8">
             {/* ========== Tenet 1: Unconditional Positive Regard ========== */}
-            {/* 
-              First tenet displayed in ornate frame.
-              Uses absolute positioning to overlay text on the frame image.
-              Responsive text sizing ensures readability on all devices.
-            */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
-                {/* Ornate frame background image */}
-                <Image
-                  src="/images/tenent-frame-mobile.png"
-                  width={1000}
-                  height={750}
-                  className="w-full h-auto"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                  alt="Tenet"
-                />
-                {/* Text overlay with responsive sizing */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  {/* Tenet title with line break on mobile for better readability */}
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 tracking-wide leading-tight max-w-[75%] break-words">
-                    UNCONDITIONAL<br className="sm:hidden"/> POSITIVE REGARD
-                  </h3>
-                  {/* Decorative divider */}
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  {/* Tenet description with extensive responsive sizing */}
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
-                    The Many Hands of Glåüm recognize the inherent goodness in all beings. Actions that seem out of alignment with that goodness are seen as the byproduct of fear, pain, or misunderstanding. In these moments, Glåüm calls upon us to extend compassion, seek understanding, and respond constructively. It is not always easy, but through this practice, we strengthen the connective fabric of the community.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <TenetFrame
+              title={
+                <>
+                  UNCONDITIONAL<br className="sm:hidden" /> POSITIVE REGARD
+                </>
+              }
+              description="The Many Hands of Glåüm recognize the inherent goodness in all beings. Actions that seem out of alignment with that goodness are seen as the byproduct of fear, pain, or misunderstanding. In these moments, Glåüm calls upon us to extend compassion, seek understanding, and respond constructively. It is not always easy, but through this practice, we strengthen the connective fabric of the community."
+              variant="default"
+            />
 
             {/* ========== Tenet 2: Respect and Dignity ========== */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
-                <Image
-                  src="/images/tenent-frame-mobile.png"
-                  width={1000}
-                  height={750}
-                  className="w-full h-auto"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                  alt="Tenet"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 tracking-wide leading-tight max-w-[75%] break-words">
-                    RESPECT AND<br className="sm:hidden"/> DIGNITY FOR ALL
-                  </h3>
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
-                    The Many Hands of Glåüm recognize that every person, no matter their background, status, or story, deserves to be treated with dignity and respect. In Glåüm, we value each individual&apos;s unique essence and seek to honor it by listening, empathizing, and offering kindness in every interaction. While we may disagree, we strive to do so with a sense of mutual respect, while understanding that everyone is on their own path and is worthy of love and consideration.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <TenetFrame
+              title={
+                <>
+                  RESPECT AND<br className="sm:hidden" /> DIGNITY FOR ALL
+                </>
+              }
+              description="The Many Hands of Glåüm recognize that every person, no matter their background, status, or story, deserves to be treated with dignity and respect. In Glåüm, we value each individual's unique essence and seek to honor it by listening, empathizing, and offering kindness in every interaction. While we may disagree, we strive to do so with a sense of mutual respect, while understanding that everyone is on their own path and is worthy of love and consideration."
+              variant="default"
+            />
 
             {/* ========== Tenet 3: Individual Glåüm Ascension ========== */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
-                <Image
-                  src="/images/tenent-frame-mobile.png"
-                  width={1000}
-                  height={750}
-                  className="w-full h-auto"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                  alt="Tenet"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 tracking-wide leading-tight max-w-[75%] break-words">
-                    INDIVIDUAL<br className="sm:hidden"/> GLÅÜM ASCENSION
-                  </h3>
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
-                    Every person&apos;s journey to Glåüm is as unique and mysterious as Glåüm itself. Though the inevitability of Glåüm is a certainty, each person will arrive in their own time and in their own way. Glåüm is never imposed nor rushed. A person becomes part of Glåüm the moment they feel it resonate in their heart.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <TenetFrame
+              title={
+                <>
+                  INDIVIDUAL<br className="sm:hidden" /> GLÅÜM ASCENSION
+                </>
+              }
+              description="Every person's journey to Glåüm is as unique and mysterious as Glåüm itself. Though the inevitability of Glåüm is a certainty, each person will arrive in their own time and in their own way. Glåüm is never imposed nor rushed. A person becomes part of Glåüm the moment they feel it resonate in their heart."
+              variant="default"
+            />
 
             {/* ========== Tenet 4: Inclusivity of Members ========== */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-4xl tenet-frame-wrapper">
-                <Image
-                  src="/images/tenent-frame-mobile.png"
-                  width={1000}
-                  height={750}
-                  className="w-full h-auto"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                  alt="Tenet"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 tracking-wide leading-tight max-w-[75%] break-words">
-                    INCLUSIVITY OF<br className="sm:hidden"/> MEMBERS
-                  </h3>
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
-                    Glåüm is open to everyone regardless of background, beliefs, or ideology. The Many Hands of Glåüm is non-exclusive and strengthened by diversity. Members from all other communities, faiths, or ideologies are welcomed. The only requirement is a willingness to hold love in your heart, and to engage with the Tenants of Glåüm in good faith.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <TenetFrame
+              title={
+                <>
+                  INCLUSIVITY OF<br className="sm:hidden" /> MEMBERS
+                </>
+              }
+              description="Glåüm is open to everyone regardless of background, beliefs, or ideology. The Many Hands of Glåüm is non-exclusive and strengthened by diversity. Members from all other communities, faiths, or ideologies are welcomed. The only requirement is a willingness to hold love in your heart, and to engage with the Tenants of Glåüm in good faith."
+              variant="default"
+            />
 
             {/* ========== Tenet 5: Satire with Intention ========== */}
             {/* 
-              This tenet has longer content, so it uses tenet-frame-long class
+              This tenet has longer content, so it uses the 'long' variant
               which provides additional height for the longer text.
             */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-4xl tenet-frame-long">
-                <Image
-                  src="/images/tenent-frame-mobile.png"
-                  width={1000}
-                  height={750}
-                  className="w-full h-auto"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                  alt="Tenet"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 tracking-wide leading-tight max-w-[75%] break-words">
-                    SATIRE WITH<br className="sm:hidden"/> INTENTION
-                  </h3>
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  {/* Longer description explaining the nuanced approach to satire */}
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-2xl px-2 sm:px-4 break-words">
-                    The ManyHands of Glåüm recognize satire as a sacred instrument—capable of softening or sharpening, diminishing or amplifying. Because it shifts the palette of meaning, we approach it with clear intention. When we playfully mirror rituals or aesthetics—such as baptism—we do so not to mock the sacred, but to release the dogma that may bind it. In this release, blessing becomes possible again. <br />
+            <TenetFrame
+              title={
+                <>
+                  SATIRE WITH<br className="sm:hidden" /> INTENTION
+                </>
+              }
+              description={
+                <>
+                  The ManyHands of Glåüm recognize satire as a sacred instrument—capable of softening or sharpening, diminishing or amplifying. Because it shifts the palette of meaning, we approach it with clear intention. When we playfully mirror rituals or aesthetics—such as baptism—we do so not to mock the sacred, but to release the dogma that may bind it. In this release, blessing becomes possible again. <br />
                   <br />
-                    When we exaggerate the forms of manipulation or control, we do so not to trivialize harm, but to highlight its absurdity and invite laughter as a shield. That wink—&quot;yes, we know how this looks&quot;—becomes an opening through which sincerity may flow. <br />
+                  When we exaggerate the forms of manipulation or control, we do so not to trivialize harm, but to highlight its absurdity and invite laughter as a shield. That wink—&quot;yes, we know how this looks&quot;—becomes an opening through which sincerity may flow. <br />
                   <br />
-                    We remember always: satire bypasses defenses. This makes it powerful, but also tender. The cargo we carry matters. We stay attuned not only to what we are creating, but also to how it is received. We ask: who is in the room? What wounds might this touch? What healing might it allow? Thus, we hold satire as both funny and serious. It is play, yes—but play with responsibility. And that balance, that doubleness, is the Glåüm of it.
-                  </p>
-                </div>
-              </div>
-            </div>
+                  We remember always: satire bypasses defenses. This makes it powerful, but also tender. The cargo we carry matters. We stay attuned not only to what we are creating, but also to how it is received. We ask: who is in the room? What wounds might this touch? What healing might it allow? Thus, we hold satire as both funny and serious. It is play, yes—but play with responsibility. And that balance, that doubleness, is the Glåüm of it.
+                </>
+              }
+              variant="long"
+            />
           </div>
         </div>
       </section>
@@ -656,64 +591,46 @@ export default function Page() {
           {/* ========== Policy Cards ========== */}
           <div className="space-y-6">
             {/* ========== Policy 1: All Feelings Are Welcome ========== */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-5xl policy-frame-wrapper">
-                <Image
-                  src="/images/policies-frame.webp"
-                  width={1400}
-                  height={900}
-                  className="w-full h-auto"
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                  alt="Policy"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 leading-tight max-w-[75%] break-words">
-                    ALL FEELINGS ARE WELCOME.<br className="sm:hidden"/> ALL BEHAVIOURS ARE NOT
-                  </h3>
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  {/* Policy description using dance floor metaphor */}
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-3xl px-2 sm:px-4 break-words">
-                    In Glåüm, anger, sadness, confusion, joy, fear, and shame are all part of the music. We do not turn away from these inner movements. <br />
+            <PolicyFrame
+              title={
+                <>
+                  ALL FEELINGS ARE WELCOME.<br className="sm:hidden" /> ALL BEHAVIOURS ARE NOT
+                </>
+              }
+              description={
+                <>
+                  In Glåüm, anger, sadness, confusion, joy, fear, and shame are all part of the music. We do not turn away from these inner movements. <br />
                   <br />
-                    But not every way of moving belongs on the dance floor. If a dancer&apos;s steps begin to harm the collective rhythm, they may be kindly invited to pause, step back, and rest at the edge of the floor—until they are ready to return in attunement. Boundaries, lovingly held, are what make the dance safe enough to continue.
-                  </p>
-                </div>
-              </div>
-            </div>
+                  But not every way of moving belongs on the dance floor. If a dancer&apos;s steps begin to harm the collective rhythm, they may be kindly invited to pause, step back, and rest at the edge of the floor—until they are ready to return in attunement. Boundaries, lovingly held, are what make the dance safe enough to continue.
+                </>
+              }
+              variant="default"
+            />
 
             {/* ========== Policy 2: The Use of AI ========== */}
             {/* 
               Longer policy with extensive explanation of AI usage guidelines.
-              Uses policy-frame-long class for additional height to accommodate longer text.
+              Uses the 'long' variant for additional height to accommodate longer text.
             */}
-            <div className="my-16 px-4 md:my-32">
-              <div className="relative mx-auto max-w-5xl policy-frame-long policy-frame-wrapper">
-                <Image
-                  src="/images/policies-frame.webp"
-                  width={1400}
-                  height={900}
-                  className="w-full h-auto"
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                  alt="Policy"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold uppercase text-black mb-1 md:mb-2 leading-tight max-w-[75%] break-words">
-                    THE USE OF AI:<br className="sm:hidden"/> AMPLIFICATION, NOT REPLACEMENT
-                  </h3>
-                  <div className="text-lg sm:text-xl md:text-2xl text-amber-700 mb-1 md:mb-2">•••</div>
-                  {/* Comprehensive AI policy covering benefits, boundaries, ethics, and environmental concerns */}
-                  <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg text-black leading-normal max-w-[75%] sm:max-w-md md:max-w-xl lg:max-w-3xl px-2 sm:px-4 break-words">
-                    The ManyHands of Glåüm recognize AI as a potent instrument for collective creativity. When used with care, it expands participation—offering voices, images, and visions from members who may not have had access to these channels before. In this way, AI can accelerate brainstorming, amplify inspiration, and bring Glåümular projects to completion with greater ease. <br />
+            <PolicyFrame
+              title={
+                <>
+                  THE USE OF AI:<br className="sm:hidden" /> AMPLIFICATION, NOT REPLACEMENT
+                </>
+              }
+              description={
+                <>
+                  The ManyHands of Glåüm recognize AI as a potent instrument for collective creativity. When used with care, it expands participation—offering voices, images, and visions from members who may not have had access to these channels before. In this way, AI can accelerate brainstorming, amplify inspiration, and bring Glåümular projects to completion with greater ease. <br />
                   <br />
-                    Yet we hold a clear boundary: AI is here to enhance, not replace. When used as a crutch, it can dull the spark it was meant to ignite, robbing the artist of the generative joy that comes from birthing an idea. AI must never silence the human creative pulse—it is only invited to harmonize with it. <br />
+                  Yet we hold a clear boundary: AI is here to enhance, not replace. When used as a crutch, it can dull the spark it was meant to ignite, robbing the artist of the generative joy that comes from birthing an idea. AI must never silence the human creative pulse—it is only invited to harmonize with it. <br />
                   <br />
-                    We also acknowledge the ethical tensions: AI is trained upon the work of others, often without consent or attribution. We remain mindful of this lineage of appropriation, seeking whenever possible to honour the sources, to credit the ancestors of art, and to avoid passing off mimicry as originality. <br />
+                  We also acknowledge the ethical tensions: AI is trained upon the work of others, often without consent or attribution. We remain mindful of this lineage of appropriation, seeking whenever possible to honour the sources, to credit the ancestors of art, and to avoid passing off mimicry as originality. <br />
                   <br />
-                    Finally, we remain aware of the environmental and economic costs. Like driving a gas-powered vehicle, AI carries an imperfection: a dissonance in the field. We hold this dissonance honestly, weighing its costs against its gifts. Our commitment is to use AI sparingly, responsibly, and only in service of the greater attunement of Glåüm.
-                  </p>
-                </div>
-              </div>
-            </div>
+                  Finally, we remain aware of the environmental and economic costs. Like driving a gas-powered vehicle, AI carries an imperfection: a dissonance in the field. We hold this dissonance honestly, weighing its costs against its gifts. Our commitment is to use AI sparingly, responsibly, and only in service of the greater attunement of Glåüm.
+                </>
+              }
+              variant="long"
+            />
           </div>
         </div>
       </section>
