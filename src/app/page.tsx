@@ -251,7 +251,7 @@ export default function Page() {
               height={800}
               className="w-full max-w-4xl h-auto"
               priority
-              sizes="100vw"
+              sizes="(max-width: 896px) 100vw, 896px"
             />
           </div>
         </div>
@@ -302,6 +302,7 @@ export default function Page() {
               width={1200}
               height={800}
               className="w-full max-w-4xl h-auto"
+              sizes="(max-width: 896px) 100vw, 896px"
             />
           </div>
           {/* Section title - "Glåümises" combines "Glåüm" with "promises/benefits" */}
@@ -324,6 +325,7 @@ export default function Page() {
               width={1200}
               height={800}
               className="w-full max-w-4xl h-auto"
+              sizes="(max-width: 896px) 100vw, 896px"
             />
           </div>
         </div>
@@ -356,7 +358,7 @@ export default function Page() {
                 height={900}
                 className="w-full h-auto"
                 priority
-                sizes="100vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 640px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1280px"
                 alt="Values of Glåüm"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 text-center">
@@ -489,8 +491,7 @@ export default function Page() {
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 896px) 100vw, 896px"
                   alt="Tenet"
                 />
                 {/* Text overlay with responsive sizing */}
@@ -517,8 +518,7 @@ export default function Page() {
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 896px) 100vw, 896px"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -541,8 +541,7 @@ export default function Page() {
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 896px) 100vw, 896px"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -565,8 +564,7 @@ export default function Page() {
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 896px) 100vw, 896px"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -593,8 +591,7 @@ export default function Page() {
                   width={1000}
                   height={750}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 896px) 100vw, 896px"
                   alt="Tenet"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -649,8 +646,7 @@ export default function Page() {
                   width={1400}
                   height={900}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
                   alt="Policy"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
@@ -680,8 +676,7 @@ export default function Page() {
                   width={1400}
                   height={900}
                   className="w-full h-auto"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
                   alt="Policy"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-14 text-center py-4 sm:py-6 md:py-8">
