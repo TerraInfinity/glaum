@@ -148,12 +148,24 @@ export default function RootLayout({
         {/* JSON-LD scripts can be placed in the body and will be moved to head by Next.js */}
         <StructuredData schemas={[organizationSchema, websiteSchema]} />
         
+        {/* ========== Skip to Content Link ========== */}
+        {/* Allows keyboard users to skip navigation and jump directly to main content */}
+        <a
+          href="#main-content"
+          className="skip-to-content"
+        >
+          Skip to main content
+        </a>
+        
         {/* ========== Global Components ========== */}
         {/* Header component with navigation - appears on all pages */}
         <Header />
         
+        {/* ========== Main Content ========== */}
         {/* Page content - dynamically rendered based on current route */}
-        {children}
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         
         {/* Footer component with SoundCloud player and copyright - appears on all pages */}
         <Footer />

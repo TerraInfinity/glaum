@@ -105,8 +105,9 @@ export default function Header() {
         High z-index (9999) ensures it stays above all content.
         Semi-transparent purple background matches brand colors.
       */}
-      <div
+      <header
         className="w-full z-[9999] mx-auto l-0 r-0 fixed top-0 left-0 right-0 header transition-all duration-300 backdrop-blur-md"
+        role="banner"
         style={{
           position: 'fixed',
           top: 0,
@@ -136,6 +137,7 @@ export default function Header() {
             color: '#FFFACD', // Lemon chiffon color for contrast against purple background
           }}
           onClick={closeMobileMenu}
+          aria-label="Glåüm - Return to homepage"
         >
           GLÅÜM
         </Link>
@@ -149,7 +151,7 @@ export default function Header() {
             or full paths when on other pages (pathname check).
             Each link has a hover underline animation effect.
           */}
-          <nav className="hidden md:flex flex-row space-x-6">
+          <nav className="hidden md:flex flex-row space-x-6" aria-label="Main navigation">
             {/* Navigation Link Pattern:
                 - Conditional href: hash anchor on homepage, full path on other pages
                 - Hover underline animation using absolute positioned span
@@ -261,7 +263,7 @@ export default function Header() {
             />
           </button>
         </div>
-      </div>
+      </header>
 
       {/* ========== Mobile Menu Overlay ========== */}
       {/* 
@@ -282,7 +284,7 @@ export default function Header() {
           width: '85%',
         }}
       >
-        <nav className="flex flex-col items-center justify-start pb-6 space-y-4">
+        <nav className="flex flex-col items-center justify-start pb-6 space-y-4" aria-label="Mobile navigation">
           <Link
             className="text-lg text-black opacity-90 hover:opacity-100 uppercase tracking-widest transition-all duration-200 hover:scale-105 hover:translate-x-1"
             href={pathname === '/' ? '#testimonials' : '/#testimonials'}

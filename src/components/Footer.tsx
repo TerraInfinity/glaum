@@ -18,7 +18,7 @@
  */
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#DB61F9] py-8">
+    <footer className="w-full bg-[#DB61F9] py-8" role="contentinfo">
       <div className="flex flex-col items-center justify-center h-full">
         {/* ========== SoundCloud Player Section ========== */}
         <div className="mb-4 w-full max-w-4xl px-4 flex flex-col items-center">
@@ -37,6 +37,8 @@ export default function Footer() {
             frameBorder="no" 
             allow="autoplay" 
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2216121104&color=%23d239f8&inverse=true&auto_play=false&show_user=true"
+            title="SoundCloud player - Camarón by Azeirf"
+            aria-label="SoundCloud audio player for Camarón by Azeirf"
           ></iframe>
           
           {/* SoundCloud attribution - required by SoundCloud terms of service */}
