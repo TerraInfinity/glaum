@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   other: {
     // Additional meta tags can be added here
     // Preconnect links are handled via external stylesheet loading
+    'theme-color': '#D239F8', // Glåüm brand purple for browser theme
   },
   verification: {
     // Add verification codes when available
@@ -124,6 +125,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: '#D239F8', // Glåüm brand purple
 }
 
 /**
