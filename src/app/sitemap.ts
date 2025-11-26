@@ -9,32 +9,35 @@
 
 import { MetadataRoute } from 'next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+// Always use primary domain for sitemap (SEO best practice)
+const PRIMARY_DOMAIN = 'https://glaum.ca'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || PRIMARY_DOMAIN
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
   
+  // Always use primary domain for sitemap URLs
   return [
     {
-      url: siteUrl,
+      url: PRIMARY_DOMAIN,
       lastModified,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
-      url: `${siteUrl}/codex`,
+      url: `${PRIMARY_DOMAIN}/codex`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/structure`,
+      url: `${PRIMARY_DOMAIN}/structure`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/participate`,
+      url: `${PRIMARY_DOMAIN}/participate`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,

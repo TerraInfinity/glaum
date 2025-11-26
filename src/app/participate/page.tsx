@@ -11,7 +11,9 @@
 
 import type { Metadata } from 'next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+// Always use primary domain for canonical URLs (SEO best practice)
+const PRIMARY_DOMAIN = 'https://glaum.ca'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || PRIMARY_DOMAIN
 
 /**
  * Page metadata for SEO and browser display.
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
     images: ['/img/participate.png'],
   },
   alternates: {
-    canonical: `${siteUrl}/participate`,
+    canonical: `${PRIMARY_DOMAIN}/participate`, // Always use primary domain for canonical URLs
   },
   robots: {
     index: true,

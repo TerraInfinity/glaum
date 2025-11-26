@@ -10,7 +10,9 @@
 
 import { MetadataRoute } from 'next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+// Always use primary domain for robots.txt sitemap reference (SEO best practice)
+const PRIMARY_DOMAIN = 'https://glaum.ca'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || PRIMARY_DOMAIN
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -34,7 +36,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: `${PRIMARY_DOMAIN}/sitemap.xml`, // Always use primary domain
   }
 }
 

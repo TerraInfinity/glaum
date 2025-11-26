@@ -15,7 +15,12 @@ import StructuredData, { organizationSchema, websiteSchema } from '@/components/
 import './globals.css'
 
 // Site configuration
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://glaum.ca'
+// Always use primary domain for canonical URLs to prevent duplicate content issues
+// Even if accessed via glaum.terrainfinity.ca, canonical URLs should point to glaum.ca
+const PRIMARY_DOMAIN = 'https://glaum.ca'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || PRIMARY_DOMAIN
+// For canonical URLs, always use primary domain for SEO
+const canonicalUrl = PRIMARY_DOMAIN
 const siteName = 'Glåüm'
 const defaultTitle = 'Glåüm: Spiritual Unity & Satire'
 const defaultDescription = 'More than love. Join the Manyhands - a community of spiritual unity, compassion, connection, and playful satire. Experience Glåüm.'
@@ -98,7 +103,7 @@ export const metadata: Metadata = {
     creator: '@glaum', // Update with actual Twitter handle if available
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: canonicalUrl, // Always use primary domain for canonical URLs (SEO best practice)
   },
   other: {
     // Additional meta tags can be added here
