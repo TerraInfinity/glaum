@@ -26,10 +26,10 @@
  * Applied globally via * selector for universal access.
  */
 * {
-  --color-purple1: #8038f4; /* Primary purple - main brand color */
-  --color-purple2: #ac63f4; /* Secondary purple - lighter variant */
-  --color-purple3: #884389; /* Tertiary purple - muted variant */
-  --color-purple4: #7862c3; /* Quaternary purple - blue-tinted variant */
+  --color-purple1: #D239F8; /* Primary purple - main brand color (Glåüm brand purple) */
+  --color-purple2: #D239F8; /* Secondary purple - using brand color for consistency */
+  --color-purple3: #D239F8; /* Tertiary purple - using brand color for consistency */
+  --color-purple4: #D239F8; /* Quaternary purple - using brand color for consistency */
 }
 
 /* ==================== CUSTOM UTILITIES (Tailwind v4 Migration) ==================== */
@@ -42,8 +42,8 @@
  */
 @utility border-pt-teal-bright { border-color: #00f5ff; } /* Bright teal border */
 @utility text-pt-teal-bright   { color: #00f5ff; }         /* Bright teal text */
-@utility bg-pt-purple-bright   { background-color: #a855f7; } /* Bright purple background */
-@utility text-purple           { color: #a855f7; }         /* Purple text */
+@utility bg-pt-purple-bright   { background-color: #D239F8; } /* Bright purple background (Glåüm brand purple) */
+@utility text-purple           { color: #D239F8; }         /* Purple text (Glåüm brand purple) */
 @utility border-orange         { border-color: #f97316; }  /* Orange border */
 @utility text-orange           { color: #f97316; }         /* Orange text */
 @utility bg-orange             { background-color: #f97316; } /* Orange background */
