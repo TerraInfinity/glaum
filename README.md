@@ -89,17 +89,20 @@ glaum/
 │   │   └── api/          # API routes (prepared for future use)
 │   │       └── README.md # API documentation
 │   ├── components/       # React components
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   ├── StructuredData.tsx
-│   │   ├── TenetFrame.tsx
-│   │   ├── PolicyFrame.tsx
-│   │   └── WebVitals.tsx
-│   └── lib/              # Utility functions
-│       ├── error-tracking.ts
-│       ├── web-vitals.ts
-│       ├── service-worker.ts
-│       └── site-config.ts
+│   │   ├── Header.tsx          # Global navigation header
+│   │   ├── Footer.tsx          # Global footer
+│   │   ├── StructuredData.tsx  # JSON-LD structured data
+│   │   ├── TenetFrame.tsx      # Reusable tenet display component
+│   │   ├── PolicyFrame.tsx     # Reusable policy display component
+│   │   ├── Section.tsx         # Reusable section container component
+│   │   ├── PageContainer.tsx   # Reusable page container component
+│   │   └── WebVitals.tsx       # Web Vitals tracking component
+│   └── lib/              # Utility functions and constants
+│       ├── constants.ts        # Centralized application constants
+│       ├── error-tracking.ts   # Error tracking utility
+│       ├── web-vitals.ts       # Web Vitals reporting
+│       ├── service-worker.ts   # Service worker registration
+│       └── site-config.ts      # Site domain configuration
 ├── public/               # Static assets
 │   ├── img/             # Images
 │   ├── images/          # Optimized images
@@ -121,9 +124,11 @@ glaum/
 - ✅ **Security Headers** - Comprehensive security headers (CSP, HSTS, etc.)
 - ✅ **Structured Data** - JSON-LD schema for better search engine understanding
 - ✅ **Responsive Design** - Mobile-first approach with Tailwind CSS
-- ✅ **Type Safety** - Full TypeScript support
+- ✅ **Type Safety** - Full TypeScript support with strict type checking
 - ✅ **Modern Stack** - Next.js 16, React 19, latest dependencies
 - ✅ **API Ready** - API routes structure prepared for future backend functionality
+- ✅ **Code Quality** - Centralized constants, reusable components, organized CSS classes
+- ✅ **Maintainability** - Consistent patterns, reduced duplication, clear documentation
 
 ## Deployment
 
@@ -138,10 +143,50 @@ The site will be automatically deployed and optimized by Vercel.
 
 ## Development Notes
 
+### Code Organization
+
+- **Constants**: All magic numbers and repeated values are centralized in `src/lib/constants.ts`
+  - Layout constants (header height, content widths)
+  - Responsive breakpoints (mobile, tablet, desktop)
+  - Hero image calculations (width multipliers, aspect ratios)
+  - Timing constants (debounce delays, transitions)
+  - Typography and spacing constants
+- **Reusable Components**: Common UI patterns are extracted into reusable components
+  - `Section.tsx` - Consistent section containers with configurable variants
+  - `PageContainer.tsx` - Full-width page containers with background images
+  - `TenetFrame.tsx` - Ornate frame component for displaying tenets
+  - `PolicyFrame.tsx` - Ornate frame component for displaying policies
+- **CSS Classes**: Inline styles have been moved to CSS utility classes in `globals.css` for better maintainability
+  - `.body-base` - Base body styles
+  - `.hero-card-bg` - Hero card background
+  - `.mobile-menu-overlay` - Mobile menu overlay
+  - `.page-container-bg` - Page container with background image
+  - `.section-bg-purple` - Purple section backgrounds
+- **Type Safety**: Strict TypeScript configuration ensures type safety across the codebase
+
+### Architecture
+
 - The `old/` directory contains legacy code and is excluded from builds
 - All pages use the App Router (Next.js 13+)
 - Client components are marked with `'use client'`
 - Server components are used by default for better performance
+
+### Best Practices
+
+- **Constants over Magic Numbers**: Use `src/lib/constants.ts` for all layout, breakpoint, and timing values
+  ```typescript
+  import { LAYOUT, BREAKPOINTS, HERO, TIMING } from '@/lib/constants'
+  ```
+- **Component Reusability**: Use `Section` and `PageContainer` components for consistent page structure
+  ```tsx
+  <Section id="about" variant="high-opacity" paddingTop="large">
+    <h2>About</h2>
+    <p>Content...</p>
+  </Section>
+  ```
+- **CSS Classes over Inline Styles**: Prefer CSS utility classes defined in `globals.css`
+  - Inline styles are only used for dynamic values (e.g., calculated dimensions, page-specific background images)
+- **Type Safety**: All components and utilities are fully typed with TypeScript
 
 ## License
 

@@ -3,6 +3,15 @@
 // =============================================
 // Centralized constants to replace magic numbers and improve maintainability.
 // These values are used throughout the application for consistency.
+//
+// This file was created as part of code quality improvements to:
+// - Eliminate magic numbers from the codebase
+// - Centralize configuration values for easy updates
+// - Improve code readability and maintainability
+// - Ensure consistency across components
+//
+// Usage:
+//   import { LAYOUT, BREAKPOINTS, HERO, TIMING } from '@/lib/constants'
 
 /**
  * Layout Constants

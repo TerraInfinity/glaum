@@ -62,12 +62,12 @@ export default function Page() {
      * Process:
      * 1. Sets background image immediately for instant display
      * 2. Creates a temporary Image object to read natural dimensions
-     * 3. Calculates container width based on viewport (80vw desktop, 98% mobile)
+     * 3. Calculates container width based on viewport using constants (HERO.DESKTOP_WIDTH_MULTIPLIER / HERO.MOBILE_WIDTH_MULTIPLIER)
      * 4. Calculates height using aspect ratio to prevent distortion
      * 5. Applies dimensions to maintain natural proportions
      * 
-     * The 0.85 multiplier slightly reduces the calculated height to add breathing room
-     * and prevent the card from feeling too tall on the page.
+     * Uses HERO.HEIGHT_REDUCTION_MULTIPLIER to slightly reduce calculated height for visual breathing room.
+     * All magic numbers have been replaced with constants from src/lib/constants.ts for maintainability.
      */
     function loadHeroImage() {
       if (!heroCard) return
@@ -92,15 +92,16 @@ export default function Page() {
         const imgHeight = img.naturalHeight
         const aspectRatio = imgWidth / imgHeight
         
-        // Calculate container width (max 80vw on desktop, 98% on mobile)
-        // Mobile uses more width to maximize screen real estate on small devices
+        // Calculate container width using constants from src/lib/constants.ts
+        // Desktop: 80% of viewport (HERO.DESKTOP_WIDTH_MULTIPLIER)
+        // Mobile: 98% of viewport (HERO.MOBILE_WIDTH_MULTIPLIER) to maximize screen real estate
         const isMobile = window.innerWidth <= BREAKPOINTS.MOBILE
         const widthMultiplier = isMobile ? HERO.MOBILE_WIDTH_MULTIPLIER : HERO.DESKTOP_WIDTH_MULTIPLIER
         const maxWidth = window.innerWidth * widthMultiplier
         const containerWidth = Math.min(maxWidth, window.innerWidth - HERO.SIDE_PADDING)
         
         // Calculate height based on aspect ratio to maintain natural proportions
-        // Height reduction multiplier adds slight reduction for visual breathing room
+        // Uses HERO.HEIGHT_REDUCTION_MULTIPLIER for visual breathing room
         const calculatedHeight = (containerWidth / aspectRatio) * HERO.HEIGHT_REDUCTION_MULTIPLIER
         
         // Set container dimensions to match calculated values
@@ -134,8 +135,8 @@ export default function Page() {
     let resizeTimeout: NodeJS.Timeout
     const handleResize = function() {
       clearTimeout(resizeTimeout)
-      // 250ms debounce: wait for user to finish resizing before recalculating
-      // This improves performance by reducing calculations during active resizing
+      // Debounce resize events using TIMING.RESIZE_DEBOUNCE constant
+      // Waits for user to finish resizing before recalculating to improve performance
       resizeTimeout = setTimeout(function() {
         loadHeroImage()
         
@@ -192,8 +193,11 @@ export default function Page() {
       </div>
 
       {/* ========== Legacy Code (Commented Out) ========== */}
-      {/* Previous hack to fix overlapping on small screens - no longer needed
-          after implementing proper responsive design with dynamic sizing */}
+      {/* 
+       * Previous workaround to fix overlapping on small screens.
+       * No longer needed after implementing proper responsive design with dynamic sizing
+       * using constants from src/lib/constants.ts and CSS utility classes.
+       */}
       {/* <div className="block sm:hidden">
         <br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div> */}
