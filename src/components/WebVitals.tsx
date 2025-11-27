@@ -1,20 +1,21 @@
 // =============================================
 // Web Vitals Component
 // =============================================
-// Client component that initializes Web Vitals tracking.
-// Must be a client component because Web Vitals can only be measured in the browser.
+// Client component that initializes Web Vitals tracking and Service Worker registration.
+// Must be a client component because Web Vitals and Service Workers can only be used in the browser.
 
 'use client'
 
 import { useEffect } from 'react'
 import { reportWebVitals } from '@/lib/web-vitals'
+import { registerServiceWorker } from '@/lib/service-worker'
 
 /**
  * WebVitals Component
  * 
- * Initializes Web Vitals tracking when the component mounts.
+ * Initializes Web Vitals tracking and Service Worker registration when the component mounts.
  * This component should be included in the root layout to track
- * performance metrics across all pages.
+ * performance metrics across all pages and enable PWA functionality.
  * 
  * Tracks:
  * - LCP (Largest Contentful Paint)
@@ -26,11 +27,19 @@ import { reportWebVitals } from '@/lib/web-vitals'
  * Data is automatically sent to:
  * - Vercel Speed Insights
  * - Google Analytics 4 (if configured)
+ * 
+ * Also registers Service Worker for:
+ * - Offline functionality
+ * - Asset caching
+ * - Improved performance
  */
 export default function WebVitals() {
   useEffect(() => {
     // Initialize Web Vitals tracking
     reportWebVitals()
+    
+    // Register Service Worker for PWA functionality
+    registerServiceWorker()
   }, [])
 
   // This component doesn't render anything

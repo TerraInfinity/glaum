@@ -62,12 +62,20 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/img/favicon.ico', sizes: 'any' },
+      { url: '/img/Glaum-Logo-Purple-Accent.png', sizes: '192x192', type: 'image/png' },
+      { url: '/img/Glaum-Logo-Purple-Accent.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/img/favicon.ico', sizes: 'any' },
+      { url: '/img/Glaum-Logo-Purple-Accent.png', sizes: '192x192', type: 'image/png' },
     ],
   },
   manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Glåüm',
+  },
   robots: {
     index: true,
     follow: true,
