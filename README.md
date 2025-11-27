@@ -85,16 +85,26 @@ glaum/
 │   │   ├── page.tsx      # Homepage
 │   │   ├── codex/        # Codex page
 │   │   ├── structure/    # Structure page
-│   │   └── participate/  # Participate page
+│   │   ├── participate/  # Participate page
+│   │   └── api/          # API routes (prepared for future use)
+│   │       └── README.md # API documentation
 │   ├── components/       # React components
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
-│   │   └── StructuredData.tsx
+│   │   ├── StructuredData.tsx
+│   │   ├── TenetFrame.tsx
+│   │   ├── PolicyFrame.tsx
+│   │   └── WebVitals.tsx
 │   └── lib/              # Utility functions
-│       └── error-tracking.ts
+│       ├── error-tracking.ts
+│       ├── web-vitals.ts
+│       ├── service-worker.ts
+│       └── site-config.ts
 ├── public/               # Static assets
 │   ├── img/             # Images
-│   └── images/          # Optimized images
+│   ├── images/          # Optimized images
+│   ├── manifest.json    # PWA manifest
+│   └── sw.js            # Service worker
 ├── .env.example         # Environment variables template
 ├── next.config.js       # Next.js configuration
 ├── tailwind.config.js   # Tailwind CSS configuration
@@ -106,10 +116,14 @@ glaum/
 - ✅ **SEO Optimized** - Complete metadata, OpenGraph, Twitter Cards, sitemap, robots.txt
 - ✅ **Error Tracking** - Vercel Analytics with custom error tracking utility
 - ✅ **Performance Monitoring** - Vercel Speed Insights for Core Web Vitals
+- ✅ **Web Vitals Tracking** - Enhanced performance monitoring with web-vitals library
+- ✅ **PWA Support** - Progressive Web App with offline functionality and installability
+- ✅ **Security Headers** - Comprehensive security headers (CSP, HSTS, etc.)
 - ✅ **Structured Data** - JSON-LD schema for better search engine understanding
 - ✅ **Responsive Design** - Mobile-first approach with Tailwind CSS
 - ✅ **Type Safety** - Full TypeScript support
 - ✅ **Modern Stack** - Next.js 16, React 19, latest dependencies
+- ✅ **API Ready** - API routes structure prepared for future backend functionality
 
 ## Deployment
 
