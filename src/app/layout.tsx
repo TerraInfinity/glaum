@@ -153,7 +153,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="seamless-gradient-wrapper">
-      <body className="text-black leading-loose" style={{ fontFamily: "'Open Sans'", backgroundColor: 'transparent', backgroundImage: 'none' }}>
+      <body className="text-black leading-loose body-base">
         {/* ========== Structured Data (JSON-LD) ========== */}
         {/* Provides structured data for search engines to better understand the website */}
         {/* JSON-LD scripts can be placed in the body and will be moved to head by Next.js */}

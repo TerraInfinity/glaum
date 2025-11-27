@@ -78,14 +78,7 @@ export const metadata: Metadata = {
 export default function StructurePage() {
   return (
     <>
-      <div className="mx-auto px-4" style={{ maxWidth: '1200px', 
-        backgroundImage: 'url(/img/structure.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-        minHeight: '100vh'
-      }}>
+      <div className="mx-auto px-4 page-container-bg page-container" style={{ backgroundImage: 'url(/img/structure.png)' }}>
         <div className="pt-48 sm:pt-32 pb-20 xs:pb-32 mx-auto bg-white bg-opacity-30">
           <div className="max-w-4xl mx-4 sm:mx-auto">
             <h1 className="mb-8 text-center xs:w-10/12 lg:w-auto text-xl sm:text-5xl mx-auto main-headline font-normal leading-snug text-heading-bronze">

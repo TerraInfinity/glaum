@@ -46,7 +46,7 @@ export default function GlobalError({
 
   return (
     <html lang="en" className="seamless-gradient-wrapper">
-      <body className="text-black leading-loose" style={{ fontFamily: "'Open Sans'", backgroundColor: 'transparent', backgroundImage: 'none' }}>
+      <body className="text-black leading-loose body-base">
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
           <div className="text-center max-w-2xl mx-auto">
             <h1 

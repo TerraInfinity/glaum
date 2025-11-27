@@ -222,14 +222,8 @@ export default function Header() {
       <div
         className={`fixed left-1/2 -translate-x-1/2 z-[9998] transition-all duration-300 md:hidden backdrop-blur-md ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
+        } mobile-menu-overlay`}
         onClick={closeMobileMenu}
-        style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.4)',
-          transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
-          top: '80px',
-          width: '85%',
-        }}
       >
         <nav className="flex flex-col items-center justify-start pb-6 space-y-4" aria-label="Mobile navigation">
           <Link

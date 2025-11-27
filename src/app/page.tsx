@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import TenetFrame from '@/components/TenetFrame'
 import PolicyFrame from '@/components/PolicyFrame'
+import { HERO, BREAKPOINTS, TIMING } from '@/lib/constants'
 
 
 /**
@@ -93,12 +94,14 @@ export default function Page() {
         
         // Calculate container width (max 80vw on desktop, 98% on mobile)
         // Mobile uses more width to maximize screen real estate on small devices
-        const maxWidth = window.innerWidth <= 768 ? window.innerWidth * 0.98 : window.innerWidth * 0.80
-        const containerWidth = Math.min(maxWidth, window.innerWidth - 32) // Account for padding (16px each side)
+        const isMobile = window.innerWidth <= BREAKPOINTS.MOBILE
+        const widthMultiplier = isMobile ? HERO.MOBILE_WIDTH_MULTIPLIER : HERO.DESKTOP_WIDTH_MULTIPLIER
+        const maxWidth = window.innerWidth * widthMultiplier
+        const containerWidth = Math.min(maxWidth, window.innerWidth - HERO.SIDE_PADDING)
         
         // Calculate height based on aspect ratio to maintain natural proportions
-        // 0.85 multiplier adds slight reduction for visual breathing room
-        const calculatedHeight = (containerWidth / aspectRatio) * 0.85
+        // Height reduction multiplier adds slight reduction for visual breathing room
+        const calculatedHeight = (containerWidth / aspectRatio) * HERO.HEIGHT_REDUCTION_MULTIPLIER
         
         // Set container dimensions to match calculated values
         cardEl.style.width = `${containerWidth}px`
@@ -109,10 +112,12 @@ export default function Page() {
       }
       img.onerror = function() {
         // Fallback: set default dimensions if image fails to load
-        // Uses 4:3 aspect ratio as a safe default that works for most images
-        const maxWidth = window.innerWidth <= 768 ? window.innerWidth * 0.98 : window.innerWidth * 0.80
+        // Uses default aspect ratio as a safe default that works for most images
+        const isMobile = window.innerWidth <= BREAKPOINTS.MOBILE
+        const widthMultiplier = isMobile ? HERO.MOBILE_WIDTH_MULTIPLIER : HERO.DESKTOP_WIDTH_MULTIPLIER
+        const maxWidth = window.innerWidth * widthMultiplier
         cardEl.style.width = `${maxWidth}px`
-        cardEl.style.height = `${maxWidth * 0.75 * 0.85}px` // Default 4:3 aspect ratio, slightly reduced
+        cardEl.style.height = `${maxWidth / HERO.DEFAULT_ASPECT_RATIO * HERO.HEIGHT_REDUCTION_MULTIPLIER}px`
         console.warn('Failed to load hero image:', imageSrc)
         // Hide loading skeleton even on error
         setIsHeroImageLoading(false)
@@ -143,7 +148,7 @@ export default function Page() {
         if (whatIsGlaumSection) {
           (whatIsGlaumSection as HTMLElement).style.backgroundImage = 'none'
         }
-      }, 250)
+      }, TIMING.RESIZE_DEBOUNCE)
     }
     
     window.addEventListener('resize', handleResize)
@@ -172,10 +177,7 @@ export default function Page() {
         {/* Hero Card - Dimensions calculated dynamically by useEffect hook above */}
         <div 
           id="hero-card"
-          className={`hero-card relative ${isHeroImageLoading ? 'hero-card-loading' : ''}`}
-          style={{
-            backgroundImage: "url('/images/hero-family-mobile.webp')",
-          }}
+          className={`hero-card relative ${isHeroImageLoading ? 'hero-card-loading' : ''} hero-card-bg`}
         >
           {/* Loading Skeleton - Shows while hero image is loading */}
           {isHeroImageLoading && (
@@ -313,7 +315,7 @@ export default function Page() {
             />
           </div>
           {/* Section title - "Glåümises" combines "Glåüm" with "promises/benefits" */}
-          <h2 id="benefits" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center" style={{ color: '#634D0B' }}>
+          <h2 id="benefits" className="font-tokyo text-5xl lg:text-7xl mb-2 pb-2 text-center text-heading-brown">
             GLÅÜMISES
           </h2>
           {/* Decorative divider */}
